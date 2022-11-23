@@ -22,24 +22,7 @@ jobs:
       - name: Make Modrinth
         run: |
           make modrinth
-          7z x ./build/modpack-modrinth.mrpack -o./build/.modrinth
-
-      - name: Make PolyMC (Auto Update)
-        run: |
-          make polymc
-          7z x ./build/modpack-polymc.zip -o./build/.polymc
-
-      - name: Upload Modrinth
-        uses: actions/upload-artifact@v3
-        with:
-          name: HexMC Modrinth
-          path: build/.modrinth
-          
-      - name: Upload PolyMC (Auto Update)
-        uses: actions/upload-artifact@v3
-        with:
-          name: HexMC MultiMC-PolyMC Auto Update
-          path: build/.polymc
+          7z x modpack-modrinth.mrpack -o./build/.modrinth
 
       - name: Publish .mrpack
         uses: RyanModDev/mrpack-publish@v0
