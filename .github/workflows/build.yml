@@ -46,12 +46,6 @@ jobs:
           name: HexMC MultiMC-PolyMC Auto Update
           path: build/.polymc
 
-      - name: Upload Server (Auto Update)
-        uses: actions/upload-artifact@v3
-        with:
-          name: Auto Update Server
-          path: build/.server
-
       - name: Publish .mrpack
         uses: RyanModDev/mrpack-publish@v0
         with:
