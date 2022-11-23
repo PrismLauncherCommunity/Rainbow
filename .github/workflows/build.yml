@@ -50,4 +50,4 @@ jobs:
           pack-filename: modpack-modrinth
           game-versions: 1.18.2
           loaders: quilt
-          modrinth-token: ${{ secrets.AZURE_CREDENTIALS }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
