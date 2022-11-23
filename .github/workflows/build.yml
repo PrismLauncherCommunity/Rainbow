@@ -54,7 +54,7 @@ jobs:
           path: build/.server
 
       - name: Publish .mrpack
-        uses: Warped-Modding/mrpack-publish@v0
+        uses: RyanModDev/mrpack-publish@v0
         with:
           name: HexMC
           version-number: 5.0.0-testing
