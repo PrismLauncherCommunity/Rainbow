@@ -27,7 +27,7 @@ curseforge:
 modrinth:
 	@echo "Making Modrinth pack"
 	mkdir -p build
-	packwiz modrinth export --pack-file ./pack/.minecraft/pack.toml -o ./build/modpack-modrinth.mrpack
+	packwiz modrinth export --pack-file ./pack/.minecraft/pack.toml -o modpack-modrinth.mrpack
 	7z d ./build/modpack-modrinth.mrpack overrides/packwiz-installer-bootstrap.jar overrides/pack.toml  overrides/index.toml	
 
 polymc:
