@@ -47,7 +47,7 @@ jobs:
           name: HexMC
           version-number: 5.0.0-testing
           project-id: AyAXUE4r
-          pack-filename: modpack-modrinth.mrpack
+          pack-filename: './build/modpack-modrinth.mrpack'
           game-versions: 1.18.2
           loaders: quilt
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
