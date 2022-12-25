@@ -24,7 +24,7 @@ jobs:
           7z x modpack-modrinth.mrpack -o./build/.modrinth
 
       - name: Publish .mrpack
-        uses: Warped-Modding/mrpack-upload@0.0.7
+        uses: Warped-Modding/mrpack-upload@0.0.8
         with:
           name: HexMC
           version-number: 5.0.0
