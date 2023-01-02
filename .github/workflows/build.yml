@@ -26,7 +26,7 @@ jobs:
       - name: Make Prism Develop
         run: |
           make prism
-          7z x prism-modpack.zip -o.prism
+          7z x modpack-prism.zip -o.prism
 
       - name: Make Server
         run: |
