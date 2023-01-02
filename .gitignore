@@ -1,2 +1,2 @@
-server/*
-!server/start.*
+./server
+quilt-installer-latest.jar
