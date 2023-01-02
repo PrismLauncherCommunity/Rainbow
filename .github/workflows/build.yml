@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: gradle/gradle-build-action@v2
       - uses: actions/setup-go@v3
         with: 
           go-version: '1.18'
@@ -22,12 +21,11 @@ jobs:
       - name: Make Modrinth
         run: |
           make modrinth
-          7z x zenith-core-development.mrpack -o .modrinth
+          7z x zenith-core-development.mrpack -o.modrinth
 
       - name: Make Server
         run: |
           make server
-          7z x server.mrpack -o .server
 
       - name: Upload Modrinth
         uses: actions/upload-artifact@v3
@@ -35,11 +33,11 @@ jobs:
           name: HexMC Modrinth
           path: build/.modrinth
 
-      - name: Upload Modrinth
+      - name: Upload Server
         uses: actions/upload-artifact@v3
         with:
-          name: HexMC Modrinth
-          path: build/.modrinth
+          name: Server
+          path: server
           
       - name: Upload PolyMC (Auto Update)
         uses: actions/upload-artifact@v3
