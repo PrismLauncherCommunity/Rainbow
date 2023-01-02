@@ -1,6 +1,6 @@
 name: Build Modpack
 
-on: [push]
+on: [release]
 
 jobs:
   build:
@@ -24,14 +24,10 @@ jobs:
           make modrinth
           7z x modpack-modrinth.mrpack -o./build/.modrinth
 
-      - name: Upload Modrinth
-        uses: actions/upload-artifact@v3
-        with:
-          name: HexMC Modrinth
-          path: build/.modrinth
-          
-      - name: Upload PolyMC (Auto Update)
-        uses: actions/upload-artifact@v3
-        with:
-          name: HexMC MultiMC-PolyMC Auto Update
-          path: build/.polymc
+      - name: Release Modrinth
+        run: |
+          make upload
+        env:
+          CHANGELOG: ${{ github.event.release.body }}
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          VERSION: ${{ env.RELEASE_VERSION }}

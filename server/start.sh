@@ -1,0 +1,1 @@
+java -jar quilt-server-launch.jar nogui

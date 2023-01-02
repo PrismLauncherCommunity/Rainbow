@@ -1,0 +1,38 @@
+hash-format = "sha256"
+
+[[files]]
+file = ".github/workflows/build.yml"
+hash = "fa5eb3d57bcce208a7103d288dc15b042273c5bfc925e08615d3441360e87f28"
+
+[[files]]
+file = ".github/workflows/release.yml"
+hash = "ddfbe176811a162be37f9124ad4764b35494e27acdc4417e4438df03a1cef17a"
+
+[[files]]
+file = "LICENSE"
+hash = "cd50ab1bb8e1c990b1ab2ad4c11998e34116162181058b44d13077767a65cc40"
+
+[[files]]
+file = "Makefile"
+hash = "588348e5928838659706a2363ecc99634e6a308d8041a3af267b821b314e67e8"
+
+[[files]]
+file = "README.md"
+hash = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+
+[[files]]
+file = "build.gradle"
+hash = "77f2c880219c1d32265807b63c1b878c7b953d9eb14fbb61ed278c949c6daca0"
+
+[[files]]
+file = "meta/mods/qsl.pw.toml"
+hash = "4ef251bf925c957e46fa3b223933425df85611d4ddf0e7a04949b38783800a65"
+metafile = true
+
+[[files]]
+file = "prism/instance.cfg"
+hash = "bfeb3dcbb23e5ebdad4c25fb4b883c044093c0be1b64e6b2937a64345dcc9c64"
+
+[[files]]
+file = "prism/mmc-pack.json"
+hash = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"

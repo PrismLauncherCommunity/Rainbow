@@ -20,41 +20,53 @@ default:
 	
 curseforge:
 	@echo "Making Curseforge pack"
-	mkdir -p build
-	packwiz curseforge export --pack-file ./pack/.minecraft/pack.toml -o ./build/modpack-curseforge.zip
-	7z d ./build/modpack-curseforge.zip overrides/packwiz-installer-bootstrap.jar overrides/pack.toml  overrides/index.toml	
+	packwiz curseforge export
 
 modrinth:
 	@echo "Making Modrinth pack"
-	mkdir -p build
-	packwiz modrinth export --pack-file ./pack/.minecraft/pack.toml -o modpack-modrinth.mrpack
-	7z d ./build/modpack-modrinth.mrpack overrides/packwiz-installer-bootstrap.jar overrides/pack.toml  overrides/index.toml	
+	packwiz modrinth export
 
-polymc:
-	@echo "Making PolyMC pack"
-	7z d ./build/modpack-polymc.zip ./pack/* -r
-	7z d ./build/modpack-polymc.zip ./pack/.minecraft -r
-	7z a ./build/modpack-polymc.zip ./pack/* -r
-	7z a ./build/modpack-polymc.zip ./pack/.minecraft -r
-	7z d ./build/modpack-polymc.zip ./pack/.minecraft/mods ./pack/.minecraft/pack.toml ./pack/.minecraft/index.toml -r
+prism:
+	@echo "Making Prism Launcher pack"
+	7z d modpack-polymc.zip ./prism/* -r
+	7z d modpack-polymc.zip ./prism/.minecraft -r
+	7z a modpack-polymc.zip ./prism/* -r
+	7z a modpack-polymc.zip ./pack/.minecraft -r
+	7z d modpack-polymc.zip ./pack/.minecraft/mods ./pack/.minecraft/pack.toml ./pack/.minecraft/index.toml -r
 
 technic:
 	@echo "Making Technic pack"
 	mkdir -p build
 	-cp -r ./pack/.minecraft ./build/.technic
 	-cp ./pack/icon.png ./build/.technic/
-	cd ./build/.technic && java -jar packwiz-installer-bootstrap.jar https://zekesmith.github.io/HexMC/pack/.minecraft/pack.tomll -g && cd ..
+	cd ./build/.technic && java -jar packwiz-installer-bootstrap.jar https://zekesmith.github.io/HexMC/pack/.minecraft/pack.toml -g && cd ..
 	-rm -rf ./build/.technic/packwiz*
 	7z d ./build/modpack-technic.zip ./build/* -r
 	7z a ./build/modpack-technic.zip ./build/.technic/* -r
 
-hexserver:
-	@echo "Making Server pack"
-	7z d ./build/modpack-server.zip ./server/* -r
-	7z a ./build/modpack-server.zip ./server/* -r
-
+servers:
+	-rm quilt-installer-latest.jar
+	-rm -v server/!("start.sh"|"start.bat")
+	wget https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/latest/quilt-installer-latest.jar
+	java -jar quilt-installer-latest.jar \
+  	install server 1.18.2 \
+  	--download-server
+	cd server && wget https://github.com/packwiz/packwiz-installer/releases/download/v0.5.4/packwiz-installer.jar
+	
+	
 clean:
+	-rm quilt-installer-latest.jar
+	-rm -v server/!("start.sh"|"start.bat")
 	-rm -rf ./build/.technic
 	-git gc --aggressive --prune
+
+update:
+	packwiz update -a
+
+release:
+	gradle modrinth
+	sed -i "s/version = \".*\..*\..*\"/version = \"$(VERSION)\"/" pack/pack.toml build.gradle
+	git push origin
+	git push mirror
 
 all: curseforge modrinth polymc technic server clean
