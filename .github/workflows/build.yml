@@ -22,7 +22,18 @@ jobs:
       - name: Make Modrinth
         run: |
           make modrinth
-          7z x modpack-modrinth.mrpack -o./build/.modrinth
+          7z x modpack-modrinth.mrpack -o .modrinth
+
+      - name: Make Server
+        run: |
+          make server
+          7z x server.mrpack -o .server
+
+      - name: Upload Modrinth
+        uses: actions/upload-artifact@v3
+        with:
+          name: HexMC Modrinth
+          path: build/.modrinth
 
       - name: Upload Modrinth
         uses: actions/upload-artifact@v3

@@ -44,19 +44,22 @@ technic:
 	7z d ./build/modpack-technic.zip ./build/* -r
 	7z a ./build/modpack-technic.zip ./build/.technic/* -r
 
-servers:
+server:
 	-rm quilt-installer-latest.jar
-	-rm -v server/!("start.sh"|"start.bat")
+	-rm -rf ./server
+	-rm zenith-core-server.zip
 	wget https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/latest/quilt-installer-latest.jar
 	java -jar quilt-installer-latest.jar \
   	install server 1.18.2 \
   	--download-server
+	cp scripts/{start.sh,start.bat} server/
 	cd server && wget https://github.com/packwiz/packwiz-installer/releases/download/v0.5.4/packwiz-installer.jar
-	
+	7z a modpack-server.zip ./server/* -r
+	make clean
 	
 clean:
 	-rm quilt-installer-latest.jar
-	-rm -v server/!("start.sh"|"start.bat")
+	-rm -rf ./server
 	-rm -rf ./build/.technic
 	-git gc --aggressive --prune
 
