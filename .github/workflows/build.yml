@@ -22,7 +22,7 @@ jobs:
       - name: Make Modrinth
         run: |
           make modrinth
-          7z x modpack-modrinth.mrpack -o .modrinth
+          7z x zenith-core-development.mrpack -o .modrinth
 
       - name: Make Server
         run: |
