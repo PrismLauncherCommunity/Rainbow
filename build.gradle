@@ -11,7 +11,7 @@ buildscript {
 apply plugin: "java"
 apply plugin: "com.modrinth.minotaur"
 
-version = "development"
+version = System.getenv().VERSION
 
 modrinth {
   token = System.getenv().MODRINTH_TOKEN

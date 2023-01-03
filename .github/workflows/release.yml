@@ -20,21 +20,17 @@ jobs:
 
       - name: Download Dependencys
         run: |
-          sudo apt install git p7zip
+          sudo apt install p7zip
           go install github.com/packwiz/packwiz@latest
 
       - name: Release Modrinth
         run: |
-          make release
-        env:
-          CHANGELOG: ${{ github.event.release.body }}
-          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
-          VERSION: ${{ env.ref_name }}
+          make release VERSION=${{ env.ref_name }} CHANGELOG=${{ github.event.release.body }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
 
       - name: Make Server
         run: |
           make server
-
+          7z a modpack-server.zip ./server/*
       
       - name: Create release
         id: create_release

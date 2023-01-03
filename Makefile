@@ -20,53 +20,39 @@ default:
 	
 curseforge:
 	@echo "Making Curseforge pack"
-	packwiz curseforge export
+	-mkdir build
+	cd build && packwiz curseforge export --pack-file ../pack/pack.toml
 
 modrinth:
 	@echo "Making Modrinth pack"
-	packwiz modrinth export
+	-mkdir build
+	cd build && packwiz modrinth export --pack-file ../pack/pack.toml
 
-prism:
-	@echo "Making Prism Launcher pack"
-	7z d modpack-prism.zip ./meta/* -r
-	7z d modpack-prism.zip ./meta/.minecraft -r
-	7z a modpack-prism.zip ./meta/* -r
-	7z a modpack-prism.zip ./meta/.minecraft -r
-	7z d modpack-prism.zip ./meta/server -r
-
-technic:
-	@echo "Making Technic pack"
-	-rm -rf .technic
-	-cp -r ./meta/.minecraft .technic/
-	cd .technic && java -jar packwiz-installer-bootstrap.jar https://gitlab.com/Merith-TK/modpack-template/-/raw/main/.minecraft/pack.toml && cd ..
-	-cp ./meta/icon.png .technic/modpack.icon.png
-	7z d modpack-technic.zip * -r
-	7z a modpack-technic.zip .technic/* -r
-
-server:
+quilt-server:
 	@echo "Making Server pack"
-	-rm quilt-installer-latest.jar
-	wget -nc https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/latest/quilt-installer-latest.jar
-	java -jar quilt-installer-latest.jar \
+	-rm build/quilt-installer-latest.jar
+	wget -nc https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/latest/quilt-installer-latest.jar -P build
+	cd build && java -jar quilt-installer-latest.jar \
   	install server 1.19.2 \
   	--download-server
-	-cp -r ./meta/server/. ./server/
-	-cp ./meta/.minecraft/packwiz-installer-bootstrap.jar ./server/
-	7z d modpack-server.zip ./server/* -r
-	7z a modpack-server.zip ./server/* -r
-	
+	-cp -r ./server ./build/server
+
+VERSION = development
+GAME_VERSION = 1.19
+MODRINTH_TOKEN = 
+CHANGELOG = update
+
+release:
+	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack.toml
+	make modrinth
+	CHANGELOG=${CHANGELOG} VERSION=${VERSION} MODRINTH_TOKEN=$(MODRINTH_TOKEN) gradle modrinth
+
 clean:
-	-rm quilt-installer-latest.jar
-	-rm -rf .technic
-	-rm -rf server
+	-rm -rf build/
+	-sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack.toml
 	-git gc --aggressive --prune
 
 update:
-	packwiz update -a
-
-release:
-	sed -i "s/version = \".*\..*\..*\"/version = \"$(VERSION)\"/" pack.toml build.gradle
-	make modrinth
-	gradle modrinth
+	go install github.com/packwiz/packwiz@latest
 
 all: curseforge modrinth prism technic server clean

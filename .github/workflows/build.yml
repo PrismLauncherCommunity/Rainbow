@@ -16,7 +16,7 @@ jobs:
 
       - name: Download Dependencys
         run: |
-          sudo apt install git p7zip
+          sudo apt install p7zip
           go install github.com/packwiz/packwiz@latest
 
       - name: Make Modrinth
