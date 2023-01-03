@@ -23,15 +23,29 @@ jobs:
           sudo apt install git p7zip
           go install github.com/packwiz/packwiz@latest
 
-      - name: Make Modrinth
-        run: |
-          make modrinth
-          7z x modpack-modrinth.mrpack -o./build/.modrinth
-
       - name: Release Modrinth
         run: |
-          make upload
+          make release
         env:
           CHANGELOG: ${{ github.event.release.body }}
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
-          VERSION: ${{ env.RELEASE_VERSION }}
+          VERSION: ${{ env.ref_name }}
+
+      - name: Make Server
+        run: |
+          make server
+
+      
+      - name: Create release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          name: Zenith Core ${{ env.ref_name }}
+          draft: true
+          prerelease: false
+          files: |
+            zenith-core-${{ env.ref_name }}.mrpack
+            modpack-server.zip
