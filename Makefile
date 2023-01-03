@@ -65,7 +65,7 @@ update:
 	packwiz update -a
 
 release:
-	sed -i "s/version = \".*\..*\..*\"/version = \"$(VERSION)\"/" pack/pack.toml build.gradle
+	sed -i "s/version = \".*\..*\..*\"/version = \"$(VERSION)\"/" packwiz/pack.toml build.gradle
 	gradle modrinth
 	git push origin
 	git push mirror
