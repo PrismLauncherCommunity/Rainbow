@@ -43,13 +43,13 @@ MODRINTH_TOKEN =
 CHANGELOG = update
 
 release:
-	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack.toml
+	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/pack.toml
 	make modrinth
 	CHANGELOG=${CHANGELOG} VERSION=${VERSION} MODRINTH_TOKEN=$(MODRINTH_TOKEN) gradle modrinth
 
 clean:
 	-rm -rf build/
-	-sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack.toml
+	-sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/pack.toml
 	-git gc --aggressive --prune
 
 update:
