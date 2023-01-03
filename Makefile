@@ -66,6 +66,7 @@ update:
 
 release:
 	sed -i "s/version = \".*\..*\..*\"/version = \"$(VERSION)\"/" pack.toml build.gradle
+	make modrinth
 	gradle modrinth
 
 all: curseforge modrinth prism technic server clean
