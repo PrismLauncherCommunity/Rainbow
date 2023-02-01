@@ -25,7 +25,7 @@ jobs:
 
       - name: Release Modrinth
         run: |
-          make release VERSION=${{ github.ref_name }} CHANGELOG=${{ github.event.release.body }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
+          make release VERSION=${{ github.ref_name }} CHANGELOG=${{ github.event.release.name }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
 
       - name: Make Server
         run: |
