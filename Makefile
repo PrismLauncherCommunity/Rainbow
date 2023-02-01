@@ -38,7 +38,7 @@ quilt-server:
 	-cp -r ./server ./build/server
 
 VERSION = development
-GAME_VERSION = 1.19
+GAME_VERSION = 1.19.2
 MODRINTH_TOKEN = 
 CHANGELOG = update
 

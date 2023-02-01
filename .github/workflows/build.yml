@@ -22,7 +22,7 @@ jobs:
       - name: Make Modrinth
         run: |
           make modrinth
-          7z x ./build/zenith-core-development.mrpack
+          7z x build/zenith-core-development.mrpack -o.modrinth
 
       - name: Make Server
         run: |
@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: HexMC Modrinth
-          path: build/zenith-core-development
+          path: build/.modrinth
 
       - name: Upload Server
         uses: actions/upload-artifact@v3
