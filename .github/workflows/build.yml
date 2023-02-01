@@ -26,7 +26,7 @@ jobs:
 
       - name: Make Server
         run: |
-          make server
+          make quilt-server
 
       - name: Upload Modrinth
         uses: actions/upload-artifact@v3

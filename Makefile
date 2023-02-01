@@ -30,11 +30,11 @@ modrinth:
 
 quilt-server:
 	@echo "Making Server pack"
-	-rm build/quilt-installer-latest.jar
 	wget -nc https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/latest/quilt-installer-latest.jar -P build
 	cd build && java -jar quilt-installer-latest.jar \
   	install server 1.19.2 \
   	--download-server
+	-rm build/quilt-installer-latest.jar
 	-cp -r ./server ./build/server
 
 VERSION = development
