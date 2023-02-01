@@ -37,15 +37,10 @@ quilt-server:
 	-rm build/quilt-installer-latest.jar
 	-cp -r ./server ./build/server
 
-VERSION = development
-GAME_VERSION = 1.19.2
-MODRINTH_TOKEN = 
-CHANGELOG = update
-
 release:
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/pack.toml
 	make modrinth
-	CHANGELOG=${CHANGELOG} VERSION=${VERSION} MODRINTH_TOKEN=$(MODRINTH_TOKEN) gradle modrinth
+	CHANGELOG=${CHANGELOG} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
 
 clean:
 	-rm -rf build/
