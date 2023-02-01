@@ -49,4 +49,4 @@ jobs:
       - name: Update Release Branch
         run: |
           git branch release
-          git push
+          git push origin HEAD:release
