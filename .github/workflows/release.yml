@@ -48,5 +48,5 @@ jobs:
 
       - name: Update Release Branch
         run: |
-          git main release
+          git branch release
           git push
