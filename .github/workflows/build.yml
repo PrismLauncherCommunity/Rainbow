@@ -22,12 +22,12 @@ jobs:
       - name: Make Modrinth
         run: |
           make modrinth
-          7z x ./build/zenith-core-development.mrpack -o./build/.modrinth
+          7z x ./build/zenith-core-development.mrpack
 
       - name: Make Prism Develop
         run: |
           make prism
-          7z x ./build/modpack-prism.zip -o./build/.prism
+          7z x ./build/modpack-prism.zip
 
       - name: Make Server
         run: |
@@ -37,13 +37,13 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: HexMC Modrinth
-          path: build/.modrinth
+          path: build/zenith-core-development
 
       - name: Upload Prism (Development)
         uses: actions/upload-artifact@v3
         with:
           name: Zenith-Core Prism Development
-          path: build/.prism
+          path: build/modpack-prism
 
       - name: Upload Server
         uses: actions/upload-artifact@v3
