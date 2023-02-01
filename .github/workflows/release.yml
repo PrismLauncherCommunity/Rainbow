@@ -45,3 +45,8 @@ jobs:
           files: |
             zenith-core-${{ env.ref_name }}.mrpack
             modpack-server.zip
+
+      - name: Update Release Branch
+        run: |
+          git main release
+          git push
