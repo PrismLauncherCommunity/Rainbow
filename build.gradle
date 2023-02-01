@@ -19,7 +19,7 @@ modrinth {
   gameVersions = ["1.19.2"]
   loaders = ["quilt"]
   changelog = System.getenv().CHANGELOG
-  uploadFile = project.file("zenith-core-${version}.mrpack")
+  uploadFile = project.file("build/zenith-core-${version}.mrpack")
   syncBodyFrom = project.file("README.md").text.replace("latest Modrinth release", "[latest Modrinth release](https://modrinth.com/modpack/waffles-modpack/version/$version)")
 }
 
