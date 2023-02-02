@@ -1,5 +1,3 @@
-NAME := $(shell sed -n 's/^ *name.*=.*"\([^"]*\)".*/\1/p' pack/${GAME_VERSION}/pack.toml)
-ID := zap
 CHANGELOG := update
 VERSION := development
 

@@ -46,10 +46,10 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           name: Zenith Core ${{ github.ref_name }}
-          draft: false
+          draft: true
           prerelease: false
           files: |
-            zenith-core-${{ github.ref_name }}.mrpack
+            zapp-${{ github.ref_name }}.mrpack
             modpack-server.zip
 
       - name: Update Release Branch
