@@ -1,6 +1,9 @@
 name: Build Modpack
 
-on: [push]
+on:
+  push:
+    tags-ignore:
+      - '**'
 
 jobs:
   build:
