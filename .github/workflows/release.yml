@@ -28,7 +28,7 @@ jobs:
           BRANCH: ${{ github.ref_name }}
         id: split
 #        run: echo "::set-output name=fragment::${BRANCH##*-}"
-        run: echo "{fragment}=${BRANCH##*-}" >> $GITHUB_OUTPUT
+        run: echo "fragment=${BRANCH##*-}" >> $GITHUB_OUTPUT
 
       - name: Release Modrinth
         run: |

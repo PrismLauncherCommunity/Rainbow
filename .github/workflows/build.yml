@@ -2,6 +2,8 @@ name: Build Modpack
 
 on:
   push:
+    branches:
+      - '**'
     tags-ignore:
       - '**'
 
