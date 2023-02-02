@@ -23,13 +23,19 @@ jobs:
           sudo apt install p7zip
           go install github.com/packwiz/packwiz@latest
 
+      - name: Split branch name
+        env:
+          BRANCH: ${{ github.ref_name }}
+        id: split
+        run: echo "::set-output name=fragment::${BRANCH##*-}"
+
       - name: Release Modrinth
         run: |
-          make release VERSION=${{ github.ref_name }} CHANGELOG=${{ github.event.release.name }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
+          make release VERSION=${{ github.ref_name }} GAME_VERSION=${{ steps.split.outputs.fragment }} CHANGELOG=${{ github.event.release.name }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
 
       - name: Make Server
         run: |
-          make server
+          make server GAME_VERSION=${{ steps.split.outputs.fragment }}
           7z a modpack-server.zip ./server/*
       
       - name: Create release
@@ -45,3 +51,8 @@ jobs:
           files: |
             zenith-core-${{ github.ref_name }}.mrpack
             modpack-server.zip
+
+      - name: Update Release Branch
+        run: |
+          git branch release
+          git push origin release
