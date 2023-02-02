@@ -39,9 +39,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          name: Zenith Core ${{ env.ref_name }}
+          name: Zenith Core ${{ github.ref_name }}
           draft: true
           prerelease: false
           files: |
-            zenith-core-${{ env.ref_name }}.mrpack
+            zenith-core-${{ github.ref_name }}.mrpack
             modpack-server.zip
