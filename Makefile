@@ -45,7 +45,7 @@ release:
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/pack.toml
 	make modrinth
 	CHANGELOG=${CHANGELOG} GAME_VERSION=${GAME_VERSION} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
-	git pull
+	git pull origin release-${GAME_VERSION}
 	git branch release-${GAME_VERSION}
 	git push origin release-${GAME_VERSION}
 
