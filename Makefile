@@ -40,7 +40,7 @@ quilt-server:
 	-cp -r ./server ./build/server
 
 release:
-	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/pack.toml
+	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/${GAME_VERSION}/pack.toml
 	make modrinth
 	CHANGELOG=${CHANGELOG} GAME_VERSION=${GAME_VERSION} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
 
