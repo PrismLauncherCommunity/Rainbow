@@ -15,7 +15,7 @@ version = System.getenv().VERSION
 
 modrinth {
   token = System.getenv().MODRINTH_TOKEN
-  projectId = "zenith-core"
+  projectId = "hexmc"
   gameVersions = [System.getenv().GAME_VERSION]
   loaders = ["quilt"]
   changelog = System.getenv().CHANGELOG
