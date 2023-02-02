@@ -37,7 +37,7 @@ jobs:
       - name: Make Server
         run: |
           make server GAME_VERSION=${{ steps.split.outputs.fragment }}
-          7z a modpack-server.zip ./server/*
+          7z a build/modpack-server.zip build/server/*
       
       - name: Create release
         id: create_release
@@ -50,8 +50,8 @@ jobs:
           draft: true
           prerelease: false
           files: |
-            zapp-${{ github.ref_name }}.mrpack
-            modpack-server.zip
+            build/zapp-${{ github.ref_name }}.mrpack
+            build/modpack-server.zip
 
       - name: Update Release Branch
         run: |
