@@ -11,7 +11,8 @@ buildscript {
 apply plugin: "java"
 apply plugin: "com.modrinth.minotaur"
 
-version = System.getenv().NAME + System.getenv().VERSION
+version = System.getenv().VERSION
+def name = System.getenv().NAME
 
 modrinth {
   token = System.getenv().MODRINTH_TOKEN
@@ -19,7 +20,7 @@ modrinth {
   gameVersions = [System.getenv().GAME_VERSION]
   loaders = ["quilt"]
   changelog = System.getenv().CHANGELOG
-  uploadFile = project.file("build/${version}-.mrpack")
+  uploadFile = project.file("build/${name}-${version}.mrpack")
   syncBodyFrom = project.file("README.md").text.replace("latest Modrinth release", "[latest Modrinth release](https://modrinth.com/modpack/waffles-modpack/version/$version)")
 }
 
