@@ -2,27 +2,22 @@
 buildscript {
   repositories {
     gradlePluginPortal()
-    mavenCentral()
   }
   dependencies {
     classpath "com.modrinth.minotaur:Minotaur:2.+"
-    implementation 'com.moandjiezana.toml:toml4j:0.7.2'
   }
 }
 
 apply plugin: "java"
 apply plugin: "com.modrinth.minotaur"
 
-
-Toml toml = new Toml().read("pack/index.toml");
 version = System.getenv().VERSION
 
 modrinth {
   token = System.getenv().MODRINTH_TOKEN
-  projectId = toml.getString("name");
-  logger.quiet(toml.getString("name");)
-  gameVersions = toml.getString("versions.minecraft");
-  loaders = toml.getString("versions[1]");
+  projectId = "zenith-core"
+  gameVersions = [System.getenv().GAME_VERSION]
+  loaders = ["quilt"]
   changelog = System.getenv().CHANGELOG
   uploadFile = project.file("build/zenith-core-${version}.mrpack")
   syncBodyFrom = project.file("README.md").text.replace("latest Modrinth release", "[latest Modrinth release](https://modrinth.com/modpack/waffles-modpack/version/$version)")

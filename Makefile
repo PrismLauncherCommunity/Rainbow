@@ -1,3 +1,6 @@
+VERSION := $(shell sed -n 's/^ *version.*=.*"\([^"]*\)".*/\1/p' pack/pack.toml)
+GAME_VERSION := $(shell sed -n 's/^ *minecraft.*=.*"\([^"]*\)".*/\1/p' pack/pack.toml)
+
 default:
 	@echo "No Default make command configured"
 	@echo "Please use either"
@@ -32,7 +35,7 @@ quilt-server:
 	@echo "Making Server pack"
 	wget -nc https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/latest/quilt-installer-latest.jar -P build
 	cd build && java -jar quilt-installer-latest.jar \
-  	install server 1.19.2 \
+  	install server ${GAME_VERSION} \
   	--download-server
 	-rm build/quilt-installer-latest.jar
 	-cp -r ./server ./build/server
@@ -40,7 +43,9 @@ quilt-server:
 release:
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/pack.toml
 	make modrinth
-	CHANGELOG=${CHANGELOG} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
+	CHANGELOG=${CHANGELOG} GAME_VERSION=${GAME_VERSION} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
+	git branch release-${GAME_VERSION}
+	git push origin release-${GAME_VERSION}
 
 clean:
 	-rm -rf build/
@@ -50,4 +55,4 @@ clean:
 update:
 	go install github.com/packwiz/packwiz@latest
 
-all: curseforge modrinth prism technic server clean
+all: curseforge modrinth prism server clean
