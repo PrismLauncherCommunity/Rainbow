@@ -1,4 +1,7 @@
-CHANGELOG := "Update"
+NAME := $(shell sed -n 's/^ *name.*=.*"\([^"]*\)".*/\1/p' pack/${GAME_VERSION}/pack.toml)
+ID := zap
+CHANGELOG := update
+VERSION := development
 
 default:
 	@echo "No Default make command configured"
@@ -12,10 +15,6 @@ default:
 	@echo "Curseforge will make a curseforge compatible zip"
 	@echo ""
 	@echo "Modrinth will make a Modrinth compatible mrpack"
-	@echo ""
-	@echo "prism will make a prism zip file which contains the packwiz updater."
-	@echo ""
-	@echo "Technic will make a Technic pack zip"
 	@echo ""
 	@echo "All will make all packs it can"
 	@echo ""
@@ -42,7 +41,7 @@ quilt-server:
 release:
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/${GAME_VERSION}/pack.toml
 	make modrinth
-	CHANGELOG=${CHANGELOG} GAME_VERSION=${GAME_VERSION} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
+	NAME=${NAME} ID=${ID} CHANGELOG=${CHANGELOG} GAME_VERSION=${GAME_VERSION} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
 
 clean:
 	-rm -rf build/

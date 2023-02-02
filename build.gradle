@@ -11,15 +11,15 @@ buildscript {
 apply plugin: "java"
 apply plugin: "com.modrinth.minotaur"
 
-version = System.getenv().VERSION
+pack_name = System.getenv().NAME
 
 modrinth {
   token = System.getenv().MODRINTH_TOKEN
-  projectId = "hexmc"
+  projectId = System.getenv().ID
   gameVersions = [System.getenv().GAME_VERSION]
   loaders = ["quilt"]
   changelog = System.getenv().CHANGELOG
-  uploadFile = project.file("build/zenith-core-${version}.mrpack")
+  uploadFile = project.file("build/${pack_name}.mrpack")
   syncBodyFrom = project.file("README.md").text.replace("latest Modrinth release", "[latest Modrinth release](https://modrinth.com/modpack/waffles-modpack/version/$version)")
 }
 

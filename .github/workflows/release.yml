@@ -46,7 +46,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           name: Zenith Core ${{ github.ref_name }}
-          draft: true
+          draft: false
           prerelease: false
           files: |
             zenith-core-${{ github.ref_name }}.mrpack
