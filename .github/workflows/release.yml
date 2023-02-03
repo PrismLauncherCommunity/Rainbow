@@ -63,4 +63,5 @@ jobs:
       - name: Update Release Branch
         run: |
           git branch release
+          git pull --rebase origin
           git push origin release
