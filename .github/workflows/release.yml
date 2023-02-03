@@ -63,3 +63,4 @@ jobs:
       - name: Update Release Branch
         run: |
           git branch release ${{ github.ref_name }}
+          git push origin release
