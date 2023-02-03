@@ -1,5 +1,6 @@
 CHANGELOG := update
 VERSION := development
+GAME_VERSION := 1.19.2
 
 default:
 	@echo "No Default make command configured"
@@ -29,6 +30,7 @@ modrinth:
 
 quilt-server:
 	@echo "Making Server pack"
+	sed -i -e '/GAME_VERSION=/ s/= .*/="${GAME_VERSION}"/' ./server/start.sh
 	wget -nc https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/latest/quilt-installer-latest.jar -P build
 	cd build && java -jar quilt-installer-latest.jar \
   	install server ${GAME_VERSION} \
@@ -37,8 +39,10 @@ quilt-server:
 	-cp -r ./server ./build/server
 
 release:
-	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/${GAME_VERSION}/pack.toml
+	sed -i -e '/VERSION=/ s/= .*/="${VERSION}"/' ./server/start.sh
+	sed -i -e '/version =/ s/= .*/= "release"/' pack/${GAME_VERSION}/pack.toml
 	make modrinth
+	make quilt-server
 	NAME=${NAME} ID=${ID} CHANGELOG=${CHANGELOG} GAME_VERSION=${GAME_VERSION} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
 
 clean:
