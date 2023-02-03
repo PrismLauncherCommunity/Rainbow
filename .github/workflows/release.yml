@@ -18,6 +18,12 @@ jobs:
           go-version: '1.18'
           check-latest: true
 
+      - name: Remove Existing Tag
+        run: |
+          git fetch --tags
+          hub release delete ${{ github.ref }}
+          git push --delete origin ${{ github.ref }}
+
       - name: Download Dependencys
         run: |
           sudo apt install p7zip
