@@ -60,8 +60,10 @@ jobs:
             build/zapp-${{ github.ref_name }}.mrpack
             build/modpack-server.zip
 
-      - name: Update Release Branch
-        run: |
-          git branch release
-          git pull --rebase origin
-          git push origin release
+      - name: Create Release Branch
+        uses: aaiezza/create-release@master
+        id: create_release
+        with:
+          release_branch: release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
