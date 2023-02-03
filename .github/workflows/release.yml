@@ -38,14 +38,10 @@ jobs:
 #        run: echo "::set-output name=fragment::${BRANCH##*-}"
         run: echo "fragment=${BRANCH##*-}" >> $GITHUB_OUTPUT
 
-      - name: Release Modrinth
+      - name: Run Release
         run: |
           make release VERSION=${{ github.ref_name }} GAME_VERSION=${{ steps.split.outputs.fragment }} CHANGELOG=${{ github.event.release.name }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
-
-      - name: Make Server
-        run: |
-          make quilt-server GAME_VERSION=${{ steps.split.outputs.fragment }}
-          7z a build/modpack-server.zip build/server/*
+          7z a build/zapp-${{ steps.split.outputs.fragment }}-auto-update-server.zip build/server/*
       
       - name: Create release
         id: create_release
@@ -58,7 +54,7 @@ jobs:
           name: ZAPP ${{ github.ref_name }}
           files: |
             build/zapp-${{ github.ref_name }}.mrpack
-            build/modpack-server.zip
+            build/zapp-${{ steps.split.outputs.fragment }}-auto-update-server.zip
 
       - name: Update Release Branch
         run: |
