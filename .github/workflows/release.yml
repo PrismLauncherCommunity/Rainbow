@@ -23,8 +23,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git fetch --tags
-          hub release delete ${{ github.ref }}
-          git push --delete origin ${{ github.ref }}
+          hub release delete ${{ github.ref_name }}
+          git push --delete origin ${{ github.ref_name }}
 
       - name: Download Dependencys
         run: |
