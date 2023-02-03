@@ -62,7 +62,7 @@ jobs:
 
       - name: Create Release Branch
         uses: aaiezza/create-release@master
-        id: create_release
+        id: create_release_branch
         with:
           release_branch: release
         env:
