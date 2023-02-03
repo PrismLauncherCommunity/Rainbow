@@ -58,7 +58,9 @@ jobs:
 
       - name: Update Release Branch
         run: |
-          git fetch origin development
-          git merge origin/development
           git branch release ${{ github.ref_name }}
+          git checkout release
+          git fetch origin development
+          git pull
+          git merge origin/development
           git push origin release
