@@ -43,6 +43,7 @@ release:
 	sed -i -e '/VERSION=/s/=.*/="release"/' server/start.bat
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/${MINECRAFT}/pack.toml
 	make modrinth
+	make curseforge
 	make quilt-server
 	NAME=${NAME} ID=${ID} CHANGELOG=${CHANGELOG} MINECRAFT=${MINECRAFT} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
 

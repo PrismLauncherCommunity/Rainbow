@@ -12,13 +12,14 @@ apply plugin: "java"
 apply plugin: "com.modrinth.minotaur"
 
 version = System.getenv().VERSION
+def game_version = System.getenv().GAME_VERSION
 
 modrinth {
   token = System.getenv().MODRINTH_TOKEN
   projectId = "zapp"
-  gameVersions = [System.getenv().GAME_VERSION]
+  gameVersions = [${game_version}]
   loaders = ["quilt"]
-  changelog = System.getenv().CHANGELOG
+  changelog = project.file("pack/${game_version}/CHANGELOG.md")
   uploadFile = project.file("build/zapp-${version}.mrpack")
   syncBodyFrom = project.file("README.md").text.replace("latest Modrinth release", "[latest Modrinth release](https://modrinth.com/modpack/waffles-modpack/version/$version)")
 }

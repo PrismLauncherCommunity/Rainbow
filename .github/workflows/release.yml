@@ -35,10 +35,9 @@ jobs:
         env:
           BRANCH: ${{ github.ref_name }}
         id: split
-#        run: echo "::set-output name=fragment::${BRANCH##*-}"
         run: echo "fragment=${BRANCH##*-}" >> $GITHUB_OUTPUT
 
-      - name: Run Release
+      - name: Make Release
         run: |
           make release VERSION=${{ github.ref_name }} GAME_VERSION=${{ steps.split.outputs.fragment }} CHANGELOG=${{ github.event.release.name }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
           cd build && 7z a zapp-${{ steps.split.outputs.fragment }}-auto-update-server.zip ./server/*
@@ -49,11 +48,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          append_body: true
+          body-path: pack/${{ steps.split.outputs.fragment }}/CHANGELOG.md
           tag_name: ${{ github.ref }}
           name: ZAPP ${{ github.ref_name }}
           files: |
             build/zapp-${{ github.ref_name }}.mrpack
+            build/zapp-${{ github.ref_name }}.zip
             build/zapp-${{ steps.split.outputs.fragment }}-auto-update-server.zip
 
       - name: Deploy
