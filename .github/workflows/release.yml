@@ -58,9 +58,9 @@ jobs:
 
       - name: Update Release Branch
         run: |
-          git pull
+          git pull develop
           git branch release
           git checkout release
-          git pull
+          git pull release
           git merge develop
           git push origin release
