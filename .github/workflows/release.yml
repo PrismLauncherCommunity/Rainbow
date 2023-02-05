@@ -56,11 +56,9 @@ jobs:
             build/zapp-${{ github.ref_name }}.mrpack
             build/zapp-${{ steps.split.outputs.fragment }}-auto-update-server.zip
 
-      - name: Update Release Branch
-        run: |
-          git pull develop
-          git branch release
-          git checkout release
-          git pull release
-          git merge develop
-          git push origin release
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./pack
+          publish_branch: release
+          github_token: ${{ secrets.GITHUB_TOKEN }}
