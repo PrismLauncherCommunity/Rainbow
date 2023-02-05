@@ -17,7 +17,7 @@ def game_version = System.getenv().GAME_VERSION
 modrinth {
   token = System.getenv().MODRINTH_TOKEN
   projectId = "zapp"
-  gameVersions = [${game_version}]
+  gameVersions = ["${game_version}"]
   loaders = ["quilt"]
   changelog = project.file("pack/${game_version}/CHANGELOG.md")
   uploadFile = project.file("build/zapp-${version}.mrpack")
