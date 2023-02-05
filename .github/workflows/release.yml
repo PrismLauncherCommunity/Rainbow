@@ -58,6 +58,9 @@ jobs:
 
       - name: Update Release Branch
         run: |
-          git branch -d release &>/dev/null || true
-          git branch release ${{ github.ref_name }}
+          git pull
+          git branch release
+          git checkout release
+          git pull
+          git merge develop
           git push origin release
