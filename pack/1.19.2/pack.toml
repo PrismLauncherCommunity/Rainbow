@@ -1,13 +1,13 @@
 name = "zapp"
 author = "ZekeZ"
-version = "develop"
+version = "1.0.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "9f219973ac98f8d24784e5475cb9bcbce7cd803a30415fb630e0f9b509f09efa"
+hash = "2d13b1fd912c4d19be35984aa1f7ed128635db218814ef1615dfacf4eed6b164"
 
 [versions]
 minecraft = "1.19.2"
-quilt = "0.17.11"
+quilt = "0.18.10"
