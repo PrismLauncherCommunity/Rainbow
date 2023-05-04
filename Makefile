@@ -31,8 +31,8 @@ modrinth:
 quilt-server:
 	@echo "Making Server pack"
 	sed -i -e '/MINECRAFT=/ s/= .*/="${MINECRAFT}"/' ./server/start.sh
-	wget -nc https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/latest/quilt-installer-latest.jar -P build
-	cd build && java -jar quilt-installer-latest.jar \
+	wget -nc https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.5.0/quilt-installer-0.5.0.jar -P build
+	cd build && java -jar quilt-installer-0.5.0.jar \
   	install server ${MINECRAFT} \
   	--download-server
 	-rm build/quilt-installer-latest.jar
