@@ -19,7 +19,7 @@ modrinth {
   projectId = "zapp"
   gameVersions = ["${game_version}"]
   loaders = ["quilt"]
-  changelog = project.file("pack/1.18.2/CHANGELOG.md")
+  changelog = project.file("pack/1.18.2/CHANGELOG.md").text
   uploadFile = project.file("build/zapp-${version}.mrpack")
   syncBodyFrom = project.file("README.md").text.replace("latest Modrinth release", "[latest Modrinth release](https://modrinth.com/modpack/waffles-modpack/version/$version)")
 }
