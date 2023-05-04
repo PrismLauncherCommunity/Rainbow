@@ -1,1 +1,5 @@
-Hi :D
+ZAPP (Zeke's Awesome Performance Pack) is a performance-focused modpack for Minecraft, designed to optimize the game's performance without compromising on its gameplay. It's a base modpack that serves as a foundation for other modpacks, providing players with a stable and efficient platform on which they can build their own modded Minecraft experience.
+
+ZAPP comes equipped with a range of optimization mods, which work together to enhance Minecraft's performance, reduce lag, and increase FPS. These mods include Sodium, Lithium, Starlight, and Ferrite Core, among others. ZAPP also includes a range of quality-of-life mods, which improve gameplay mechanics and make the game more enjoyable to play.
+
+ZAPP is designed to be a lightweight and stable modpack, which means it can be easily customized and built upon. Other modpack creators can use ZAPP as a base to create their own modpacks, adding or removing mods as they see fit, without having to worry about performance issues or compatibility problems.

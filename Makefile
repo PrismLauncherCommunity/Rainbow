@@ -35,7 +35,7 @@ quilt-server:
 	cd build && java -jar quilt-installer-0.5.0.jar \
   	install server ${MINECRAFT} \
   	--download-server
-	-rm build/quilt-installer-latest.jar
+	-rm build/quilt-installer-0.5.0.jar
 	-cp -r ./server ./build/server
 
 release:
