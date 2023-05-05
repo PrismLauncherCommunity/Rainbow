@@ -13,12 +13,8 @@ file = "config/debugify.json"
 hash = "68ad55a8421814e6bd802b664244e40540a37eaf3ee8aded87fea53520d25d38"
 
 [[files]]
-file = "config/fabric_loader_dependencies.json"
-hash = "09a479d429ddfa6f36dc1048ef0c3249e05209f07c6246d2e86dd3474151ba40"
-
-[[files]]
 file = "config/isxander-main-menu-credits.json"
-hash = "32b45c8c1febcad84d3951c4aa3f360f19f673dcce6deb9d088e88cf96107554"
+hash = "2611f15786fc7535a6cd9d027bfefb984ddc586450e28597bbfbe7271c7afb07"
 
 [[files]]
 file = "config/modmenu.json"
@@ -94,7 +90,7 @@ hash = "ef73ff0fcd6f7e7f3727f493ab61fdc8a65d710475426a55f72eb772ef0ed309"
 
 [[files]]
 file = "config/yosbr/options.txt"
-hash = "fa32fb5f03af862a301c06b71a70f03e5c8f8579acf28f883604a93ff19fef30"
+hash = "2c8605b966ea752285061156c1011fb50e460f2b83091107f9a2cf752633e6fb"
 
 [[files]]
 file = "mods/advancementinfo.pw.toml"
@@ -192,11 +188,6 @@ hash = "3bf54134dbf492b27b52b95cc994bfe0e3ec089a884ea1fdad0ee4cc33cf28e3"
 metafile = true
 
 [[files]]
-file = "mods/farsight-fabric.pw.toml"
-hash = "405ebb1af4106b57116d678e467884c8771aad967e4029cd797f895c0e3cf1f1"
-metafile = true
-
-[[files]]
 file = "mods/ferritecore.pw.toml"
 hash = "956d39f0b93aa2f92c9b5521387cc16438fafc035a9601a9d55494ae92ed8c0f"
 metafile = true
@@ -204,6 +195,11 @@ metafile = true
 [[files]]
 file = "mods/fsb-interop.pw.toml"
 hash = "6c3fc6de171a3ae525039aa28a8ae8cca553a8d801dbe8e84dd1cbf483124600"
+metafile = true
+
+[[files]]
+file = "mods/hold-that-chunk.pw.toml"
+hash = "8847ebb401a474d65b2ffd00a226356e94791db3f5cf98505beb227e74298884"
 metafile = true
 
 [[files]]
@@ -219,11 +215,6 @@ metafile = true
 [[files]]
 file = "mods/isxander-main-menu-credits.pw.toml"
 hash = "bf619ec7dae9e2dcd694424a7c702c7fa1f549c3589f9ea0f4ef4d40d9041c2a"
-metafile = true
-
-[[files]]
-file = "mods/itemmodelfix.pw.toml"
-hash = "8b7d66d060cd640af8df7bac02529d4d0773c24d3a83399219942df1c41f44c5"
 metafile = true
 
 [[files]]
@@ -269,6 +260,11 @@ metafile = true
 [[files]]
 file = "mods/mixintrace.pw.toml"
 hash = "0a8e6a58962ba40f696a44cb2d02355490bc831b49509f8083e3e7bc89b40052"
+metafile = true
+
+[[files]]
+file = "mods/modelfix.pw.toml"
+hash = "9d903fdb128e98639fca7b110c1d1993bfaddc9025ccbe0d03753c429f895134"
 metafile = true
 
 [[files]]
@@ -344,11 +340,6 @@ metafile = true
 [[files]]
 file = "mods/yosbr.pw.toml"
 hash = "9dffabf569e9e1b272c7311579a4a758a88e551bf2b2c1d75319489656053c55"
-metafile = true
-
-[[files]]
-file = "mods/zoomify.pw.toml"
-hash = "fb2d59112294b5fa973c5726c1ac7d804e51a8837cb74badae970aea5ed7dce1"
 metafile = true
 
 [[files]]
