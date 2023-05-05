@@ -1,5 +1,8 @@
-ZAPP (Zeke's Awesome Performance Pack) is a performance-focused modpack for Minecraft, designed to optimize the game's performance without compromising on its gameplay. It's a base modpack that serves as a foundation for other modpacks, providing players with a stable and efficient platform on which they can build their own modded Minecraft experience.
+# Warp Core
+Warp Core is a performance-focused modpack for Minecraft that prioritizes optimization and stability while still providing a rich gameplay experience. Designed to serve as a foundation for other modpacks, Warp Core includes a suite of mods that work together to enhance Minecraft's performance, reduce lag, and increase FPS.
 
-ZAPP comes equipped with a range of optimization mods, which work together to enhance Minecraft's performance, reduce lag, and increase FPS. These mods include Sodium, Lithium, Starlight, and Ferrite Core, among others. ZAPP also includes a range of quality-of-life mods, which improve gameplay mechanics and make the game more enjoyable to play.
+Warp Core's lightweight and stable design make it a perfect base for other modpacks. Modpack creators can use Warp Core as a foundation to build their own modpacks, adding or removing mods as needed without worrying about performance issues or compatibility problems.
 
-ZAPP is designed to be a lightweight and stable modpack, which means it can be easily customized and built upon. Other modpack creators can use ZAPP as a base to create their own modpacks, adding or removing mods as they see fit, without having to worry about performance issues or compatibility problems.
+### Dont ask about the plushes and Blåhaj!!!
+*I cant remove them if I do the entire modpack breaks!!!*
+*for some reason they are linked to core functionality*
