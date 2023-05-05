@@ -113,6 +113,11 @@ hash = "a26a337fce738a7bcb616ad11865b27076b615449516d982353f71d4e94297f7"
 metafile = true
 
 [[files]]
+file = "mods/blahaj.pw.toml"
+hash = "e764ff745e74ab31545221f386e8f298dcd25314dd56976580923b91948999ca"
+metafile = true
+
+[[files]]
 file = "mods/borderlessmining.pw.toml"
 hash = "de041e2c7a3a94cebdef9e22bebb7b81c1340762423209bb9a3fbc4934a9da1d"
 metafile = true
@@ -293,8 +298,33 @@ hash = "cbc992bd5c0a572dd4712f8eeef4fedd531cf4a1642876ab579039488dabfe8f"
 metafile = true
 
 [[files]]
+file = "mods/plasmo-voice.pw.toml"
+hash = "65198dd82c834054aeb494a0cae99047ce2e25e8a438af45d951123a0b4d99a5"
+metafile = true
+
+[[files]]
+file = "mods/plushie.pw.toml"
+hash = "91c8f12f4b35547f32d868157c5d869f4ef7c31214f717c3ef76effc176700bc"
+metafile = true
+
+[[files]]
 file = "mods/puzzle.pw.toml"
 hash = "b7e2f1508c84610b643e31116f9b280b2153a8aa89e1b103d5d5540949778e81"
+metafile = true
+
+[[files]]
+file = "mods/pv-addon-groups.pw.toml"
+hash = "98ec355436257a68b2b6a9066ade873e0675ca2b74aea0a3b3f9ef38ac6aadf1"
+metafile = true
+
+[[files]]
+file = "mods/pv-addon-sculk.pw.toml"
+hash = "5e6b572e61b65e964baebd2c234ce439241b30517cf8765df4c6204cc1125077"
+metafile = true
+
+[[files]]
+file = "mods/pv-addon-whisper.pw.toml"
+hash = "c3e8d0f94318d2deb4ca9d9a05f18889315e046bffc72235213d9094d5c1d634"
 metafile = true
 
 [[files]]
