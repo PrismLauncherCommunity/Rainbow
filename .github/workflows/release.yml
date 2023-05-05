@@ -40,7 +40,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          body-path: pack/${{ steps.split.outputs.fragment }}/CHANGELOG.md
+          body_path: pack/${{ steps.split.outputs.fragment }}/CHANGELOG.md
           tag_name: ${{ github.ref }}
           name: Warp Core ${{ github.ref_name }}
           files: |
