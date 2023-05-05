@@ -70,7 +70,7 @@ hash = "a96351b4d852862f0c994cd61a05856c965e73e8f698591f0f2f5ba9a30bd952"
 
 [[files]]
 file = "config/yosbr/config/lambdynlights.toml"
-hash = "5b83dbf79c2df634529371bb6fe139fadaf485710212080363a522f2f5983ca6"
+hash = "2b8d4a41a60a9d7f5918914a669b961e494affa807487f1b7b74d94da40d4af2"
 
 [[files]]
 file = "config/yosbr/config/midnightcontrols.json"
@@ -95,6 +95,11 @@ hash = "2c8605b966ea752285061156c1011fb50e460f2b83091107f9a2cf752633e6fb"
 [[files]]
 file = "mods/advancementinfo.pw.toml"
 hash = "03586e60a57ea47f8c0f67e6ae8e74c411a1e3787979f593530e9c8cb9f2a2ca"
+metafile = true
+
+[[files]]
+file = "mods/alternate-current.pw.toml"
+hash = "f30b15dc574856f6eca824f645537680ca12a6282bee89a33cbced66d6601dca"
 metafile = true
 
 [[files]]
@@ -208,6 +213,11 @@ hash = "8847ebb401a474d65b2ffd00a226356e94791db3f5cf98505beb227e74298884"
 metafile = true
 
 [[files]]
+file = "mods/immediatelyfast.pw.toml"
+hash = "fd0d31c123f53fb70d79e3ac5333dc9178b378c87d46eb0b8f63db324f67fe51"
+metafile = true
+
+[[files]]
 file = "mods/indium.pw.toml"
 hash = "eb586c82b82374cbae08d6cbb80a947834020159b4d06256cce2095a832b5636"
 metafile = true
@@ -220,6 +230,11 @@ metafile = true
 [[files]]
 file = "mods/isxander-main-menu-credits.pw.toml"
 hash = "bf619ec7dae9e2dcd694424a7c702c7fa1f549c3589f9ea0f4ef4d40d9041c2a"
+metafile = true
+
+[[files]]
+file = "mods/krypton.pw.toml"
+hash = "998f45a9037fa4663bc5e2bea5de925bf4ce6352328fcaaa830db8466cc62416"
 metafile = true
 
 [[files]]
@@ -314,17 +329,17 @@ metafile = true
 
 [[files]]
 file = "mods/pv-addon-groups.pw.toml"
-hash = "98ec355436257a68b2b6a9066ade873e0675ca2b74aea0a3b3f9ef38ac6aadf1"
+hash = "26526bf2f83a832a8d311ceac0602be8c5c3ed495aaeaaaf4822c3c0f373c6ba"
 metafile = true
 
 [[files]]
 file = "mods/pv-addon-sculk.pw.toml"
-hash = "5e6b572e61b65e964baebd2c234ce439241b30517cf8765df4c6204cc1125077"
+hash = "7e4efbc1a0ceaddda1c222e48b754a43af8b3e4791dc31a79640571dab1bc92d"
 metafile = true
 
 [[files]]
 file = "mods/pv-addon-whisper.pw.toml"
-hash = "c3e8d0f94318d2deb4ca9d9a05f18889315e046bffc72235213d9094d5c1d634"
+hash = "c7026ae77bb31b82f8661b5f7013f8e5c64d621161936bcf4059d8e2acfa5544"
 metafile = true
 
 [[files]]
@@ -360,6 +375,11 @@ metafile = true
 [[files]]
 file = "mods/starlight.pw.toml"
 hash = "7c42bb0fe982cf5004bfcb62690e9b433890ebd76ea94611fd91c68b00f386fe"
+metafile = true
+
+[[files]]
+file = "mods/world-host.pw.toml"
+hash = "bef67669d3e9c3cec13dbfa04654a16b28ce469d5195214c3371adc1529393ad"
 metafile = true
 
 [[files]]
