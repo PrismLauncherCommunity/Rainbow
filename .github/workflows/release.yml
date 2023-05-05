@@ -32,7 +32,7 @@ jobs:
       - name: Make Release
         run: |
           make release VERSION=${{ github.ref_name }} MINECRAFT=${{ steps.split.outputs.fragment }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
-          cd build/server && 7z a warp-core-${{ steps.split.outputs.fragment }}-auto-update-server.zip ./*
+          cd ./build && 7z a warp-core-${{ steps.split.outputs.fragment }}-auto-update-server.zip ./server/*
       
       - name: Create release
         id: create_release
@@ -44,9 +44,9 @@ jobs:
           tag_name: ${{ github.ref }}
           name: Warp Core ${{ github.ref_name }}
           files: |
-            build/warp-core-${{ github.ref_name }}.mrpack
-            build/warp-core-${{ github.ref_name }}.zip
-            build/warp-core-${{ steps.split.outputs.fragment }}-auto-update-server.zip
+            ./build/warp-core-${{ github.ref_name }}.mrpack
+            ./build/warp-core-${{ github.ref_name }}.zip
+            ./build/warp-core-${{ steps.split.outputs.fragment }}-auto-update-server.zip
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
