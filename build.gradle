@@ -16,12 +16,12 @@ def game_version = System.getenv().GAME_VERSION
 
 modrinth {
   token = System.getenv().MODRINTH_TOKEN
-  projectId = "zapp"
+  projectId = "warp-core"
   gameVersions = ["${game_version}"]
   loaders = ["quilt"]
   changelog = project.file("pack/${game_version}/CHANGELOG.md").text
-  uploadFile = project.file("build/zapp-${version}.mrpack")
-  syncBodyFrom = project.file("README.md").text.replace("latest Modrinth release", "[latest Modrinth release](https://modrinth.com/modpack/waffles-modpack/version/$version)")
+  uploadFile = project.file("build/warp-core-${version}.mrpack")
+  syncBodyFrom = project.file("README.md").text
 }
 
 tasks.modrinth.dependsOn tasks.modrinthSyncBody

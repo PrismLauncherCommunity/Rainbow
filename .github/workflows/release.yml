@@ -32,7 +32,7 @@ jobs:
       - name: Make Release
         run: |
           make release VERSION=${{ github.ref_name }} GAME_VERSION=${{ steps.split.outputs.fragment }} CHANGELOG=${{ github.event.release.name }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
-          cd build && 7z a zapp-${{ steps.split.outputs.fragment }}-auto-update-server.zip ./server/*
+          cd build && 7z a warp-core-${{ steps.split.outputs.fragment }}-auto-update-server.zip ./server/*
       
       - name: Create release
         id: create_release
@@ -42,11 +42,11 @@ jobs:
         with:
           body-path: pack/${{ steps.split.outputs.fragment }}/CHANGELOG.md
           tag_name: ${{ github.ref }}
-          name: ZAPP ${{ github.ref_name }}
+          name: Warp Core ${{ github.ref_name }}
           files: |
-            build/zapp-${{ github.ref_name }}.mrpack
-            build/zapp-${{ github.ref_name }}.zip
-            build/zapp-${{ steps.split.outputs.fragment }}-auto-update-server.zip
+            build/warp-core-${{ github.ref_name }}.mrpack
+            build/warp-core-${{ github.ref_name }}.zip
+            build/warp-core-${{ steps.split.outputs.fragment }}-auto-update-server.zip
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
