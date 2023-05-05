@@ -11,7 +11,7 @@ buildscript {
 apply plugin: "java"
 apply plugin: "com.modrinth.minotaur"
 
-def version = System.getenv().VERSION
+version = System.getenv().VERSION
 def minecraft = System.getenv().MINECRAFT
 def loader = System.getenv().LOADER
 
