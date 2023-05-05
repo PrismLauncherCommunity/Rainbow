@@ -46,7 +46,7 @@ release:
 	make modrinth
 	make curseforge
 	make quilt-server
-	ID=${ID} VERSION=${VERSION} MINECRAFT=${MINECRAFT} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
+	ID=${ID} VERSION=${VERSION} LOADER=${VERSION} MINECRAFT=${MINECRAFT} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
 
 clean:
 	-rm -rf build/
