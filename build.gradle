@@ -1,0 +1,27 @@
+
+buildscript {
+  repositories {
+    gradlePluginPortal()
+  }
+  dependencies {
+    classpath "com.modrinth.minotaur:Minotaur:2.+"
+  }
+}
+
+apply plugin: "java"
+apply plugin: "com.modrinth.minotaur"
+
+version = System.getenv().VERSION
+def game_version = System.getenv().GAME_VERSION
+
+modrinth {
+  token = System.getenv().MODRINTH_TOKEN
+  projectId = "warp-core"
+  gameVersions = ["${game_version}"]
+  loaders = ["quilt"]
+  changelog = project.file("pack/${game_version}/CHANGELOG.md").text
+  uploadFile = project.file("build/warp-core-${version}.mrpack")
+  syncBodyFrom = project.file("README.md").text
+}
+
+tasks.modrinth.dependsOn tasks.modrinthSyncBody
