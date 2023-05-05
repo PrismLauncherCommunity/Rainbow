@@ -11,15 +11,16 @@ buildscript {
 apply plugin: "java"
 apply plugin: "com.modrinth.minotaur"
 
-version = System.getenv().VERSION
-game_version = System.getenv().MINECRAFT
+def version = System.getenv().VERSION
+def minecraft = System.getenv().MINECRAFT
+def loader = System.getenv().LOADER
 
 modrinth {
   token = System.getenv().MODRINTH_TOKEN
   projectId = System.getenv().ID
-  gameVersions = ["${game_version}"]
-  loaders = [System.getenv().LOADER]
-  changelog = project.file("pack/${game_version}/CHANGELOG.md").text
+  gameVersions = ["${minecraft}"]
+  loaders = ["${loader}"]
+  changelog = project.file("pack/${minecraft}/CHANGELOG.md").text
   uploadFile = project.file("build/warp-core-${version}.mrpack")
   syncBodyFrom = project.file("README.md").text
 }

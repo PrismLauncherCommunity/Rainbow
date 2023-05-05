@@ -40,8 +40,8 @@ quilt-server:
 	-cp -r ./server/* ./build/server
 
 release:
-	sed -i -e '/VERSION=/s/=.*/="release"/' server/start.sh
-	sed -i -e '/VERSION=/s/=.*/="release"/' server/start.bat
+	sed -i -e '/VERSION=/s/=.*/="release"/' ./server/start.sh
+	sed -i -e '/VERSION=/s/=.*/="release"/' ./server/start.bat
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/${MINECRAFT}/pack.toml
 	make modrinth
 	make curseforge
@@ -50,9 +50,9 @@ release:
 
 clean:
 	-rm -rf build/
-	sed -i -e '/VERSION=/s/=.*/="develop"/' server/start.sh
-	sed -i -e '/VERSION=/s/=.*/="develop"/' server/start.bat
-	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/pack.toml
+	sed -i -e '/VERSION=/s/=.*/="develop"/' ./server/start.sh
+	sed -i -e '/VERSION=/s/=.*/="develop"/' ./server/start.bat
+	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' ./pack/pack.toml
 	-git gc --aggressive --prune
 
 update:
