@@ -12,13 +12,13 @@ apply plugin: "java"
 apply plugin: "com.modrinth.minotaur"
 
 version = System.getenv().VERSION
-def game_version = System.getenv().GAME_VERSION
+game_version = System.getenv().MINECRAFT
 
 modrinth {
   token = System.getenv().MODRINTH_TOKEN
-  projectId = "warp-core"
+  projectId = System.getenv().ID
   gameVersions = ["${game_version}"]
-  loaders = ["quilt"]
+  loaders = [System.getenv().LOADER]
   changelog = project.file("pack/${game_version}/CHANGELOG.md").text
   uploadFile = project.file("build/warp-core-${version}.mrpack")
   syncBodyFrom = project.file("README.md").text

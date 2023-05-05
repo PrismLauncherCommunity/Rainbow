@@ -1,5 +1,6 @@
-CHANGELOG := update
+ID := warp-core
 VERSION := develop
+LOADER := quilt
 MINECRAFT := 1.19.2
 
 default:
@@ -20,23 +21,23 @@ default:
 	
 curseforge:
 	@echo "Making ${MINECRAFT} Curseforge pack"
-	-mkdir build
+	-mkdir ./build
 	cd build && packwiz curseforge export --pack-file ../pack/${MINECRAFT}/pack.toml
 
 modrinth:
 	@echo "Making ${MINECRAFT} Modrinth pack"
-	-mkdir build
+	-mkdir ./build
 	cd build && packwiz modrinth export --pack-file ../pack/${MINECRAFT}/pack.toml
 
 quilt-server:
 	@echo "Making Server pack"
 	sed -i -e '/MINECRAFT=/ s/= .*/="${MINECRAFT}"/' ./server/start.sh
 	wget -nc https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.5.0/quilt-installer-0.5.0.jar -P build
-	cd build && java -jar quilt-installer-0.5.0.jar \
+	cd build && java -jar quilt-installer-*.jar \
   	install server ${MINECRAFT} \
   	--download-server
-	-rm build/quilt-installer-0.5.0.jar
-	-cp -r ./server ./build/server
+	-rm build/quilt-installer-*.jar
+	-cp -r ./server/* ./build/server
 
 release:
 	sed -i -e '/VERSION=/s/=.*/="release"/' server/start.sh
@@ -45,7 +46,7 @@ release:
 	make modrinth
 	make curseforge
 	make quilt-server
-	NAME=${NAME} ID=${ID} CHANGELOG=${CHANGELOG} MINECRAFT=${MINECRAFT} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
+	gradle modrinth
 
 clean:
 	-rm -rf build/

@@ -1,12 +1,12 @@
 name = "warp-core"
 author = "ZekeZ"
-version = "1.0.0"
+version = "0.0.6"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "6e1e4b0510c0d63857a2ae24d72552657341885bc2683a5fd3cb2c41cd1e64fb"
+hash = "721ee61eb172d7059820cf0454c3766f2c52c26a6bb4206571d289469abba447"
 
 [versions]
 minecraft = "1.19.2"

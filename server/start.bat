@@ -1,6 +1,6 @@
 @echo off
 
-set VERSION="develop"
+set VERSION="release"
 set MINECRAFT="1.19.2"
 set REPO="https://raw.githubusercontent.com/Warped-Modding/Warp-Core"
 

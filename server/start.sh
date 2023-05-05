@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="develop"
+VERSION="release"
 MINECRAFT="1.19.2"
 REPO="https://raw.githubusercontent.com/Warped-Modding/Warp-Core"
 

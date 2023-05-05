@@ -31,8 +31,8 @@ jobs:
 
       - name: Make Release
         run: |
-          make release VERSION=${{ github.ref_name }} GAME_VERSION=${{ steps.split.outputs.fragment }} CHANGELOG=${{ github.event.release.name }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
-          cd build && 7z a warp-core-${{ steps.split.outputs.fragment }}-auto-update-server.zip ./server/*
+          make release VERSION=${{ github.ref_name }} MINECRAFT=${{ steps.split.outputs.fragment }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
+          cd build/server && 7z a warp-core-${{ steps.split.outputs.fragment }}-auto-update-server.zip ./*
       
       - name: Create release
         id: create_release

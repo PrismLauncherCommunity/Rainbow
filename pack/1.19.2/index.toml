@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "CHANGELOG.md"
-hash = "44b052c6b79d5a6f9f7d3a0772f25020c61d8c60bea3be5afc227185f0e432eb"
+hash = "c5aecd1228b2d4977cf58dea1c2467bdf702cac5a69628458188810875a89725"
 
 [[files]]
 file = "config/citresewn.json"
