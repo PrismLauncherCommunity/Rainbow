@@ -1,4 +1,4 @@
-ID := warp-core
+ID := rainbow
 VERSION := develop
 LOADER := quilt
 MINECRAFT := 1.19.2
@@ -6,42 +6,41 @@ MINECRAFT := 1.19.2
 default:
 	@echo "No Default make command configured"
 	@echo "Please use either"
-	@echo "   - make curseforge"
 	@echo "   - make modrinth"
 	@echo "   - make prism"
 	@echo "   - make technic"
 	@echo "   - make all"
 	@echo ""
-	@echo "Curseforge will make a curseforge compatible zip"
-	@echo ""
 	@echo "Modrinth will make a Modrinth compatible mrpack"
 	@echo ""
 	@echo "All will make all packs it can"
 	@echo ""
-	
-curseforge:
-	@echo "Making ${MINECRAFT} Curseforge pack"
-	-mkdir ./build
-	cd build && packwiz curseforge export --pack-file ../pack/${MINECRAFT}/pack.toml
 
-modrinth:
+export-mrpack:
 	@echo "Making ${MINECRAFT} Modrinth pack"
-	-mkdir ./build
-	cd build && packwiz modrinth export --pack-file ../pack/${MINECRAFT}/pack.toml
+	-mkdir build
+	cd build && pw modrinth export --pack-file ../pack/${MINECRAFT}/pack.toml
 
-quilt-server:
+export-server:
 	@echo "Making Server pack"
-	sed -i -e '/MINECRAFT=/ s/= .*/="${MINECRAFT}"/' ./server/start.sh
-	wget -nc https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.5.0/quilt-installer-0.5.0.jar -P build
-	cd build && java -jar quilt-installer-*.jar \
+	sed -i -e '/MINECRAFT=/ s/= .*/="${MINECRAFT}"/' server/start.sh
+	-mkdir build
+	wget -nc https://quiltmc.org/api/v1/download-latest-installer/java-universal -O build/quilt-installer.jar
+	cd build && java -jar quilt-installer.jar \
   	install server ${MINECRAFT} \
   	--download-server
-	-rm build/quilt-installer-*.jar
-	-cp -r ./server/* ./build/server
+	wget -nc https://github.com/packwiz/packwiz-installer-bootstrap/releases/download/v0.0.3/packwiz-installer-bootstrap.jar -P build/server
+	-rm build/quilt-installer.jar
 
-release:
-	sed -i -e '/VERSION=/s/=.*/="release"/' ./server/start.sh
-	sed -i -e '/VERSION=/s/=.*/="release"/' ./server/start.bat
+run-server:
+	@echo "Starting Dev Server (make sure to run export-server first)"
+	go run server.go ${MINECRAFT}
+	echo "eula=true" > build/server/eula.txt
+	cd build/server && java -jar quilt-server-launch.jar nogui
+
+upload-modrinth:
+	sed -i -e '/VERSION=/s/=.*/="release"/' server/start.sh
+	sed -i -e '/VERSION=/s/=.*/="release"/' server/start.bat
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/${MINECRAFT}/pack.toml
 	make modrinth
 	make curseforge
@@ -55,7 +54,7 @@ clean:
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' ./pack/pack.toml
 	-git gc --aggressive --prune
 
-update:
+update-packwiz:
 	go install github.com/packwiz/packwiz@latest
 
-all: curseforge modrinth prism server clean
+all: modrinth prism server clean

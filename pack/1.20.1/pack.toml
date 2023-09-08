@@ -1,0 +1,13 @@
+name = "Rainbow"
+author = "ZekeZ"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "13ccf38bbbd254205ecd6fd400c04774d987b8c3ffc142d233d36ae21c1f0714"
+
+[versions]
+minecraft = "1.20.1"
+quilt = "0.20.2"

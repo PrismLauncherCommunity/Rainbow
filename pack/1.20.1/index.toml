@@ -1,0 +1,20 @@
+hash-format = "sha256"
+
+[[files]]
+file = "CHANGELOG.md"
+hash = "c5aecd1228b2d4977cf58dea1c2467bdf702cac5a69628458188810875a89725"
+
+[[files]]
+file = "mods/geckolib.pw.toml"
+hash = "e394b1a364551e504f32e65bf1ad6bd5a17b0250d4715c7bf4955840fe2d398b"
+metafile = true
+
+[[files]]
+file = "mods/plushables.pw.toml"
+hash = "e5150d59746342e8aa4348b208670f298b4b37bf386e71446b7764be7690b71d"
+metafile = true
+
+[[files]]
+file = "mods/qsl.pw.toml"
+hash = "7a06b7203a44d879f81651f5d192933aeac202ca9012fa8e314b7a4560268410"
+metafile = true
