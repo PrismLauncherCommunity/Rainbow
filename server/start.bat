@@ -1,7 +1,7 @@
 @echo off
 
-set VERSION="release"
-set MINECRAFT="1.19.2"
+set VERSION="develop"
+set MINECRAFT="1.20.1"
 set REPO="https://raw.githubusercontent.com/Warped-Modding/Warp-Core"
 
 java -jar packwiz-installer-bootstrap.jar -g -s server %REPO%/%VERSION%/%MINECRAFT%/pack.toml

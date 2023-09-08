@@ -1,7 +1,7 @@
 #!/bin/bash
 
-VERSION="release"
-MINECRAFT="1.19.2"
+VERSION="develop"
+MINECRAFT="1.20.1"
 REPO="https://raw.githubusercontent.com/Warped-Modding/Warp-Core"
 
 java -jar packwiz-installer-bootstrap.jar -g -s server $REPO/$VERSION/$MINECRAFT/pack.toml
