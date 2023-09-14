@@ -6,8 +6,8 @@ MINECRAFT := 1.19.2
 default:
 	@echo "No Default make command configured"
 	@echo "Please use either"
-	@echo "   - make modrinth"
-	@echo "   - make prism"
+	@echo "   - make export-mrpack"
+	@echo "   - export-server"
 	@echo "   - make technic"
 	@echo "   - make all"
 	@echo ""
@@ -21,26 +21,15 @@ export-mrpack:
 	-mkdir build
 	cd build && pw modrinth export --pack-file ../pack/${MINECRAFT}/pack.toml
 
-export-server:
-	@echo "Making Server pack"
-	sed -i -e '/MINECRAFT=/ s/= .*/="${MINECRAFT}"/' server/start.sh
-	-mkdir build
-	wget -nc https://quiltmc.org/api/v1/download-latest-installer/java-universal -O build/quilt-installer.jar
-	cd build && java -jar quilt-installer.jar \
-  	install server ${MINECRAFT} \
-  	--download-server
-	wget -nc https://github.com/packwiz/packwiz-installer-bootstrap/releases/download/v0.0.3/packwiz-installer-bootstrap.jar -P build/server
-	-rm build/quilt-installer.jar
-
 run-server:
-	@echo "Starting Dev Server (make sure to run export-server first)"
+	@echo "Starting Dev Server"
+	wget -nc https://github.com/packwiz/packwiz-installer-bootstrap/releases/download/v0.0.3/packwiz-installer-bootstrap.jar -P build/server
+	wget -nc https://meta.fabricmc.net/v2/versions/loader/1.20.1/0.14.22/0.11.2/server/jar -O build/server/devel-server.jar
 	go run server.go ${MINECRAFT}
 	echo "eula=true" > build/server/eula.txt
-	cd build/server && java -jar quilt-server-launch.jar nogui
+	cd build/server && java -jar devel-server.jar nogui
 
 upload-modrinth:
-	sed -i -e '/VERSION=/s/=.*/="release"/' server/start.sh
-	sed -i -e '/VERSION=/s/=.*/="release"/' server/start.bat
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/${MINECRAFT}/pack.toml
 	make modrinth
 	make curseforge
@@ -49,8 +38,6 @@ upload-modrinth:
 
 clean:
 	-rm -rf build/
-	sed -i -e '/VERSION=/s/=.*/="develop"/' ./server/start.sh
-	sed -i -e '/VERSION=/s/=.*/="develop"/' ./server/start.bat
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' ./pack/pack.toml
 	-git gc --aggressive --prune
 
