@@ -9,9 +9,12 @@ $(BUILDDIR):
 	mkdir -p $@
 
 $(BUILDDIR)/server: | $(BUILDDIR)
-	@echo "Installing fabric"
-	mkdir $(BUILDDIR)/server
-	wget -nc https://meta.fabricmc.net/v2/versions/loader/1.20.1/0.14.22/0.11.2/server/jar -O $(BUILDDIR)/server/devel-server.jar
+	@echo "Installing quilt"
+	wget -nc https://quiltmc.org/api/v1/download-latest-installer/java-universal -O $(BUILDDIR)/quilt-installer.jar
+	cd $(BUILDDIR) && java -jar quilt-installer.jar \
+		install server ${MINECRAFT} \
+		--download-server
+	-rm $(BUILDDIR)/quilt-installer.jar
 
 $(BUILDDIR)/server/packwiz-installer-bootstrap.jar: | $(BUILDDIR)/server
 	@echo "Preparing packwiz bootstrap"
@@ -36,7 +39,7 @@ prepare-server: download-mods $(BUILDDIR)/server/eula.txt
 
 run-server: prepare-server
 	@echo "Starting Dev Server"
-	cd $(BUILDDIR)/server && java -jar devel-server.jar nogui
+	cd $(BUILDDIR)/server && java -jar quilt-server-launch.jar nogui
 
 export-mrpack:
 	@echo "Making ${MINECRAFT} Modrinth pack"
