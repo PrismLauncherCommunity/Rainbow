@@ -10,11 +10,7 @@ $(BUILDDIR):
 
 $(BUILDDIR)/server: | $(BUILDDIR)
 	@echo "Installing quilt"
-	wget -nc https://quiltmc.org/api/v1/download-latest-installer/java-universal -O $(BUILDDIR)/quilt-installer.jar
-	cd $(BUILDDIR) && java -jar quilt-installer.jar \
-		install server ${MINECRAFT} \
-		--download-server
-	-rm $(BUILDDIR)/quilt-installer.jar
+	wget -nc https://meta.fabricmc.net/v2/versions/loader/1.20.1/0.14.22/0.11.2/server/jar -O $(BUILDDIR)/server/devel-server.jar
 
 $(BUILDDIR)/server/packwiz-installer-bootstrap.jar: | $(BUILDDIR)/server
 	@echo "Preparing packwiz bootstrap"
@@ -39,7 +35,7 @@ prepare-server: download-mods $(BUILDDIR)/server/eula.txt
 
 run-server: prepare-server
 	@echo "Starting Dev Server"
-	cd $(BUILDDIR)/server && java -jar quilt-server-launch.jar nogui
+	cd $(BUILDDIR)/server && java -jar devel-server.jar nogui
 
 export-mrpack:
 	@echo "Making ${MINECRAFT} Modrinth pack"
@@ -47,8 +43,6 @@ export-mrpack:
 	cd $(BUILDDIR) && pw modrinth export --pack-file ../pack/${MINECRAFT}/pack.toml
 
 upload-modrinth:
-	sed -i -e '/VERSION=/s/=.*/="release"/' server/start.sh
-	sed -i -e '/VERSION=/s/=.*/="release"/' server/start.bat
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/${MINECRAFT}/pack.toml
 	make modrinth
 	make curseforge
@@ -57,8 +51,6 @@ upload-modrinth:
 
 clean:
 	-rm -rf $(BUILDDIR)/
-	sed -i -e '/VERSION=/s/=.*/="develop"/' ./server/start.sh
-	sed -i -e '/VERSION=/s/=.*/="develop"/' ./server/start.bat
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' ./pack/pack.toml
 	-git gc --aggressive --prune
 
