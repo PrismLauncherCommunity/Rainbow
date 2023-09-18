@@ -9,7 +9,8 @@ $(BUILDDIR):
 	mkdir -p $@
 
 $(BUILDDIR)/server: | $(BUILDDIR)
-	@echo "Installing quilt"
+	@echo "Installing fabric"
+	mkdir $(BUILDDIR)/server
 	wget -nc https://meta.fabricmc.net/v2/versions/loader/1.20.1/0.14.22/0.11.2/server/jar -O $(BUILDDIR)/server/devel-server.jar
 
 $(BUILDDIR)/server/packwiz-installer-bootstrap.jar: | $(BUILDDIR)/server
