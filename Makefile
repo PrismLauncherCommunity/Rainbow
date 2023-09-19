@@ -1,50 +1,49 @@
-ID := rainbow
-VERSION := develop
-LOADER := quilt
-MINECRAFT := 1.20.1
+ID=rainbow
+VERSION=develop
+LOADER=fabric
+MINECRAFT=1.20.1
 
-BUILDDIR=build/
+BUILDDIR=build
 
 $(BUILDDIR):
 	mkdir -p $@
 
-$(BUILDDIR)/server: | $(BUILDDIR)
-	@echo "Installing quilt"
-	wget -nc https://quiltmc.org/api/v1/download-latest-installer/java-universal -O $(BUILDDIR)/quilt-installer.jar
-	cd $(BUILDDIR) && java -jar quilt-installer.jar \
-		install server ${MINECRAFT} \
-		--download-server
-	-rm $(BUILDDIR)/quilt-installer.jar
+$(BUILDDIR)/$(MINECRAFT)/server: | $(BUILDDIR)
+	@echo "Installing Fabric"
+	mkdir -p $(BUILDDIR)/$(MINECRAFT)/server
+	wget -nc https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.11.2/fabric-installer-0.11.2.jar -O $(BUILDDIR)/fabric-installer.jar
+	cd $(BUILDDIR) && java -jar fabric-installer.jar \
+		server -dir $(MINECRAFT)/server -mcversion ${MINECRAFT} -downloadMinecraft
+	-rm $(BUILDDIR)/fabric-installer.jar
 
-$(BUILDDIR)/server/packwiz-installer-bootstrap.jar: | $(BUILDDIR)/server
+$(BUILDDIR)/$(MINECRAFT)/server/packwiz-installer-bootstrap.jar: | $(BUILDDIR)/$(MINECRAFT)/server
 	@echo "Preparing packwiz bootstrap"
-	wget -nc https://github.com/packwiz/packwiz-installer-bootstrap/releases/download/v0.0.3/packwiz-installer-bootstrap.jar -P $(BUILDDIR)/server
+	wget -nc https://github.com/packwiz/packwiz-installer-bootstrap/releases/download/v0.0.3/packwiz-installer-bootstrap.jar -P $(BUILDDIR)/$(MINECRAFT)/server
 
-$(BUILDDIR)/server/eula.txt: | $(BUILDDIR)/server/packwiz-installer-bootstrap.jar
+$(BUILDDIR)/$(MINECRAFT)/server/eula.txt: | $(BUILDDIR)/$(MINECRAFT)/server/packwiz-installer-bootstrap.jar
 	@echo "Agreeing to EULA"
-	echo "eula=true" > $(BUILDDIR)/server/eula.txt
+	echo "eula=true" > $(BUILDDIR)/$(MINECRAFT)/server/eula.txt
 
 update-packwiz:
 	@echo "Update packwiz"
 	go install github.com/packwiz/packwiz@latest
 
-download-mods: | $(BUILDDIR)/server/packwiz-installer-bootstrap.jar update-packwiz
+download-mods: | $(BUILDDIR)/$(MINECRAFT)/server/packwiz-installer-bootstrap.jar update-packwiz
 	@echo "Download server mods"
 	packwiz --pack-file ./pack/${MINECRAFT}/pack.toml serve &
 	@sleep 1
-	cd $(BUILDDIR)/server && java -jar packwiz-installer-bootstrap.jar -g -s server http://0.0.0.0:8080/pack.toml
-	pkill packwiz 
+	cd $(BUILDDIR)/$(MINECRAFT)/server && java -jar packwiz-installer-bootstrap.jar -g -s server http://0.0.0.0:8080/pack.toml
+	pkill packwiz
 
-prepare-server: download-mods $(BUILDDIR)/server/eula.txt
+prepare-server: download-mods $(BUILDDIR)/$(MINECRAFT)/server/eula.txt
 
 run-server: prepare-server
 	@echo "Starting Dev Server"
-	cd $(BUILDDIR)/server && java -jar quilt-server-launch.jar nogui
+	cd $(BUILDDIR)/$(MINECRAFT)/server && java -jar fabric-server-launch.jar nogui || echo "done" 
 
 export-mrpack:
 	@echo "Making ${MINECRAFT} Modrinth pack"
-	-mkdir $(BUILDDIR)
-	cd $(BUILDDIR) && pw modrinth export --pack-file ../pack/${MINECRAFT}/pack.toml
+	cd $(BUILDDIR)/$(MINECRAFT) && pw modrinth export --pack-file ../pack/${MINECRAFT}/pack.toml
 
 upload-modrinth:
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/${MINECRAFT}/pack.toml
