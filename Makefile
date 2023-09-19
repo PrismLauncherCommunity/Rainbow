@@ -20,7 +20,7 @@ $(BUILDDIR)/$(MINECRAFT)/server/packwiz-installer-bootstrap.jar: | $(BUILDDIR)/$
 	@echo "Preparing packwiz bootstrap"
 	wget -nc https://github.com/packwiz/packwiz-installer-bootstrap/releases/download/v0.0.3/packwiz-installer-bootstrap.jar -P $(BUILDDIR)/$(MINECRAFT)/server
 
-$(BUILDDIR)/$(MINECRAFT)/server/eula.txt: | $(BUILDDIR)/$(MINECRAFT)/server/packwiz-installer-bootstrap.jar
+$(BUILDDIR)/$(MINECRAFT)/server/eula.txt:
 	@echo "Agreeing to EULA"
 	echo "eula=true" > $(BUILDDIR)/$(MINECRAFT)/server/eula.txt
 
@@ -28,18 +28,19 @@ update-packwiz:
 	@echo "Update packwiz"
 	go install github.com/packwiz/packwiz@latest
 
-download-mods: | $(BUILDDIR)/$(MINECRAFT)/server/packwiz-installer-bootstrap.jar update-packwiz
+serve-mods: | update-packwiz
 	@echo "Download server mods"
+	-pkill packwiz
 	packwiz --pack-file ./pack/${MINECRAFT}/pack.toml serve &
 	@sleep 1
-	cd $(BUILDDIR)/$(MINECRAFT)/server && java -jar packwiz-installer-bootstrap.jar -g -s server http://0.0.0.0:8080/pack.toml
-	pkill packwiz
 
-prepare-server: download-mods $(BUILDDIR)/$(MINECRAFT)/server/eula.txt
+prepare-server: serve-mods $(BUILDDIR)/$(MINECRAFT)/server/packwiz-installer-bootstrap.jar
 
-run-server: prepare-server
+run-server: prepare-server $(BUILDDIR)/$(MINECRAFT)/server/eula.txt
 	@echo "Starting Dev Server"
-	cd $(BUILDDIR)/$(MINECRAFT)/server && java -jar fabric-server-launch.jar nogui || echo "done" 
+	cd $(BUILDDIR)/$(MINECRAFT)/server && java -jar packwiz-installer-bootstrap.jar -g -s server http://0.0.0.0:8080/pack.toml
+	cd $(BUILDDIR)/$(MINECRAFT)/server && java -jar fabric-server-launch.jar nogui || echo "done"
+	-pkill packwiz
 
 export-mrpack:
 	@echo "Making ${MINECRAFT} Modrinth pack"
@@ -53,8 +54,9 @@ upload-modrinth:
 	ID=${ID} VERSION=${VERSION} LOADER=${LOADER} MINECRAFT=${MINECRAFT} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
 
 clean:
+	-pkill packwiz
 	-rm -rf $(BUILDDIR)/
-	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' ./pack/pack.toml
+	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' ./pack/$(MINECRAFT)/pack.toml
 	-git gc --aggressive --prune
 
 
