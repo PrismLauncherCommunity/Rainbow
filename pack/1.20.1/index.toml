@@ -121,6 +121,11 @@ hash = "d1918c147280714406f99f1d6359a1246509d14b9030b52cfee9807cd1e71791"
 metafile = true
 
 [[files]]
+file = "mods/krypton.pw.toml"
+hash = "71ef7cc16632c0039fe194183b5885968c6d740aaa67a58000653ae0cb40b882"
+metafile = true
+
+[[files]]
 file = "mods/lithium.pw.toml"
 hash = "c239c951796882b9c93e649a0dba4f2d95804441faaed707b686381b7a5c67da"
 metafile = true
@@ -138,11 +143,6 @@ metafile = true
 [[files]]
 file = "mods/no-chat-reports.pw.toml"
 hash = "7ca62a9da5c2ec9f0a8bed5394021c959e90077db16b313be44f4c8736f7fbf5"
-metafile = true
-
-[[files]]
-file = "mods/packet-fixer.pw.toml"
-hash = "c8f0dbdf42b7cbbe152ae235e2af1460f3a252463348aa5c9b882d15aacd8f01"
 metafile = true
 
 [[files]]
@@ -176,6 +176,11 @@ hash = "c89835f045a03832c287470cd1729a70f1265e3eac7b3cdaf603c3c1fd677689"
 metafile = true
 
 [[files]]
+file = "mods/servercore.pw.toml"
+hash = "b5a0689c8ca4d98adb7dfe35df4bc6a1dceac5c4b792e5fbb0ad5290991e2684"
+metafile = true
+
+[[files]]
 file = "mods/sodium-extra.pw.toml"
 hash = "9a95450545986bf74307b399d60a42236926b21e142bf246408f7ae0804ccee8"
 metafile = true
@@ -196,6 +201,11 @@ hash = "96e3771cd09bb4a808d1c1fcb5a050efdc2ffb4efe7b584407ed54c46c0388d9"
 metafile = true
 
 [[files]]
+file = "mods/starlight.pw.toml"
+hash = "250689d1d6e59b0e76638f28693b3148e72ae66d95c162dfeb7a8f872307f05b"
+metafile = true
+
+[[files]]
 file = "mods/threadtweak.pw.toml"
 hash = "bb044cd95d56fb9e1f52a8c18a843df8daf56d22a822568112e9dfa28dab7926"
 metafile = true
@@ -203,6 +213,11 @@ metafile = true
 [[files]]
 file = "mods/vivecraft.pw.toml"
 hash = "c977b3bfece9ac913c3c61f6e61babd1886cf2d1706fa42013b40cfa094bb569"
+metafile = true
+
+[[files]]
+file = "mods/vmp-fabric.pw.toml"
+hash = "40f1effd2c65b6c6f9a1b5dfd0903c87df02b23da6b57f389f61f361ef86d425"
 metafile = true
 
 [[files]]
