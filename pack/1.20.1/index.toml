@@ -141,6 +141,11 @@ hash = "7ca62a9da5c2ec9f0a8bed5394021c959e90077db16b313be44f4c8736f7fbf5"
 metafile = true
 
 [[files]]
+file = "mods/packet-fixer.pw.toml"
+hash = "c8f0dbdf42b7cbbe152ae235e2af1460f3a252463348aa5c9b882d15aacd8f01"
+metafile = true
+
+[[files]]
 file = "mods/plasmo-voice.pw.toml"
 hash = "1ef638a5a1bc05863d2a3798114f5f338f70775cb03a39b75b236e06cd156fbd"
 metafile = true
