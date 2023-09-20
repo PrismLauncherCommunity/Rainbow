@@ -57,10 +57,6 @@ file = "config/yosbr/options.txt"
 hash = "d59932dd2c071b31efe654f70de11decc23bd0f05af492dd6e42f89e4dd7369d"
 
 [[files]]
-file = "mods/Plutonium-1.0.0.jar"
-hash = "af7b6b8e5eb7388b8905242fd3b06574ddad7c475c2678282012f1274743356a"
-
-[[files]]
 file = "mods/argonauts.pw.toml"
 hash = "6d52f489c0129b5246a8382405fbdd6511b78b66f51d6a16a735dae33278babd"
 metafile = true
