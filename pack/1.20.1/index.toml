@@ -101,6 +101,11 @@ hash = "b8270928d44781b9e59982d376bb3cc0d24089ceebef3c79d3e1e881ba7ece60"
 metafile = true
 
 [[files]]
+file = "mods/estrogen.pw.toml"
+hash = "2d1175001b4e3370895ef6affb21f7d9dc5a5fe7405236feb5ef5479de9b48b3"
+metafile = true
+
+[[files]]
 file = "mods/fabric-api.pw.toml"
 hash = "49e15403e817f170b3aac836e9b334ef0044aa5cf81e344356a7b7d6042d0585"
 metafile = true
@@ -218,6 +223,11 @@ metafile = true
 [[files]]
 file = "mods/threadtweak.pw.toml"
 hash = "bb044cd95d56fb9e1f52a8c18a843df8daf56d22a822568112e9dfa28dab7926"
+metafile = true
+
+[[files]]
+file = "mods/trinkets.pw.toml"
+hash = "b2e02d1210f025b905299bfc88f895058640158343322641aca2c4875622c992"
 metafile = true
 
 [[files]]
