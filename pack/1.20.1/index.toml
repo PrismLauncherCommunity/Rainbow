@@ -101,6 +101,26 @@ hash = "b8270928d44781b9e59982d376bb3cc0d24089ceebef3c79d3e1e881ba7ece60"
 metafile = true
 
 [[files]]
+file = "mods/emi-loot.pw.toml"
+hash = "8766521465c1cc6b57199a24008be030eabfd417c0ba7eb6c91f26c2f6ffa70a"
+metafile = true
+
+[[files]]
+file = "mods/emi.pw.toml"
+hash = "45119a046ee1e893bed9ae1143e69e677816689379dcbba12151cdcf5a53a3e4"
+metafile = true
+
+[[files]]
+file = "mods/emiffect.pw.toml"
+hash = "6395441f751bc9aca4cd024df876b9f7abbfc53d8911f5264c5c36eabbb21c82"
+metafile = true
+
+[[files]]
+file = "mods/emitrades.pw.toml"
+hash = "4c59088a2cb975f60347da57d72bb1069b65452c6a7b92af8facec6e1bed9409"
+metafile = true
+
+[[files]]
 file = "mods/estrogen.pw.toml"
 hash = "2d1175001b4e3370895ef6affb21f7d9dc5a5fe7405236feb5ef5479de9b48b3"
 metafile = true
@@ -116,8 +136,8 @@ hash = "03e174cf691b52da20bd973b955fae6f3720d3d2120f9d6cc1de5fdf3180013c"
 metafile = true
 
 [[files]]
-file = "mods/flan.pw.toml"
-hash = "1392f66e3cd9ea515afa89bd2adf0db5a734a45b3d363f5c76b7c1e9a0eac071"
+file = "mods/goml-reserved.pw.toml"
+hash = "8d81962a8da8fc8e63e62f68ef86dde843df371635b4b0626b125c2227069ba9"
 metafile = true
 
 [[files]]
