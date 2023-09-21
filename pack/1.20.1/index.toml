@@ -101,8 +101,8 @@ hash = "03e174cf691b52da20bd973b955fae6f3720d3d2120f9d6cc1de5fdf3180013c"
 metafile = true
 
 [[files]]
-file = "mods/goml-reserved.pw.toml"
-hash = "8d81962a8da8fc8e63e62f68ef86dde843df371635b4b0626b125c2227069ba9"
+file = "mods/flan.pw.toml"
+hash = "1392f66e3cd9ea515afa89bd2adf0db5a734a45b3d363f5c76b7c1e9a0eac071"
 metafile = true
 
 [[files]]
