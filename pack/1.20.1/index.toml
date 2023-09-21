@@ -136,8 +136,8 @@ hash = "03e174cf691b52da20bd973b955fae6f3720d3d2120f9d6cc1de5fdf3180013c"
 metafile = true
 
 [[files]]
-file = "mods/goml-reserved.pw.toml"
-hash = "8d81962a8da8fc8e63e62f68ef86dde843df371635b4b0626b125c2227069ba9"
+file = "mods/htm.pw.toml"
+hash = "96acf6b8340a6a2eef00505b25a9b231b456b6094355f56d85fe59575bc026b0"
 metafile = true
 
 [[files]]
