@@ -40,7 +40,7 @@ jobs:
         with:
           body_path: pack/${{ steps.split.outputs.fragment }}/CHANGELOG.md
           tag_name: ${{ github.ref }}
-          name: Warp Core ${{ github.ref_name }}
+          name: Rainbow ${{ github.ref_name }}
           files: |
             ./build/${{ steps.split.outputs.fragment }}/rainbow-${{ github.ref_name }}.mrpack
 
