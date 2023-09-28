@@ -42,7 +42,7 @@ jobs:
           tag_name: ${{ github.ref }}
           name: Warp Core ${{ github.ref_name }}
           files: |
-            ./build/rainbow-${{ github.ref_name }}.mrpack
+            ./build/${{ steps.split.outputs.fragment }}/rainbow-${{ github.ref_name }}.mrpack
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
