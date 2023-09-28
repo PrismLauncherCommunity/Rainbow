@@ -6,7 +6,7 @@ MINECRAFT=1.20.1
 BUILDDIR=build
 
 $(BUILDDIR):
-	mkdir -p $@
+	mkdir -p $@/$(MINECRAFT)
 
 $(BUILDDIR)/$(MINECRAFT)/server: | $(BUILDDIR)
 	@echo "Installing Fabric"
@@ -42,7 +42,7 @@ run-server: prepare-server $(BUILDDIR)/$(MINECRAFT)/server/eula.txt
 	cd $(BUILDDIR)/$(MINECRAFT)/server && java -jar fabric-server-launch.jar nogui || echo "done"
 	-pkill packwiz
 
-export-mrpack:
+export-mrpack: $(BUILDDIR)
 	@echo "Making ${MINECRAFT} Modrinth pack"
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/${MINECRAFT}/pack.toml
 	cd $(BUILDDIR)/$(MINECRAFT) && packwiz modrinth export --pack-file ../../pack/${MINECRAFT}/pack.toml
