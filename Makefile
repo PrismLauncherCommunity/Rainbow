@@ -44,13 +44,10 @@ run-server: prepare-server $(BUILDDIR)/$(MINECRAFT)/server/eula.txt
 
 export-mrpack:
 	@echo "Making ${MINECRAFT} Modrinth pack"
-	cd $(BUILDDIR)/$(MINECRAFT) && pw modrinth export --pack-file ../pack/${MINECRAFT}/pack.toml
-
-upload-modrinth:
 	sed -i -e '/version =/ s/= .*/= "${VERSION}"/' pack/${MINECRAFT}/pack.toml
-	make modrinth
-	make curseforge
-	make quilt-server
+	cd $(BUILDDIR)/$(MINECRAFT) && packwiz modrinth export --pack-file ../../pack/${MINECRAFT}/pack.toml
+
+upload-modrinth: export-mrpack
 	ID=${ID} VERSION=${VERSION} LOADER=${LOADER} MINECRAFT=${MINECRAFT} MODRINTH_TOKEN=${MODRINTH_TOKEN} gradle modrinth
 
 clean:

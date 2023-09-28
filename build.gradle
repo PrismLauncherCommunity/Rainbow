@@ -21,7 +21,7 @@ modrinth {
   gameVersions = ["${minecraft}"]
   loaders = ["${loader}"]
   changelog = project.file("pack/${minecraft}/CHANGELOG.md").text
-  uploadFile = project.file("build/warp-core-${version}.mrpack")
+  uploadFile = project.file("build/${minecraft}/rainbow-${version}.mrpack")
   syncBodyFrom = project.file("README.md").text
 }
 

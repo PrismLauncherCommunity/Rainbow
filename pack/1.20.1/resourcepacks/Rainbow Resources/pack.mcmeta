@@ -1,0 +1,10 @@
+{
+    "pack": {
+        "pack_format": 15,
+        "description": {
+            "translate": "rainbow.resourcePack.rainbowresources",
+            "fallback": "Resources for rainbow based modpacks"
+        },
+        "supported_formats": [15, 18]
+    }
+}
