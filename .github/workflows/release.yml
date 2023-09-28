@@ -30,7 +30,7 @@ jobs:
 
       - name: Make Release
         run: |
-          make release VERSION=${{ github.ref_name }} MINECRAFT=${{ steps.split.outputs.fragment }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
+          make upload-modrinth VERSION=${{ github.ref_name }} MINECRAFT=${{ steps.split.outputs.fragment }} MODRINTH_TOKEN=${{ secrets.MODRINTH_TOKEN }}
       
       - name: Create release
         id: create_release
