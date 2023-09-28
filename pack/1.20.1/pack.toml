@@ -1,6 +1,6 @@
-name = "Rainbow"
+name = "rainbow"
 author = "Prism Community"
-version = "develop"
+version = "1.0.3-1.20.1"
 pack-format = "packwiz:1.1.0"
 
 [index]
