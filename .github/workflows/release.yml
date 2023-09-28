@@ -43,8 +43,6 @@ jobs:
           name: Warp Core ${{ github.ref_name }}
           files: |
             ./build/rainbow-${{ github.ref_name }}.mrpack
-            ./build/rainbow-${{ github.ref_name }}.zip
-            ./build/rainbow-${{ steps.split.outputs.fragment }}-auto-update-server.zip
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
