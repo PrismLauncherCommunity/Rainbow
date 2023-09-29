@@ -1,12 +1,12 @@
 name = "rainbow"
 author = "Prism Community"
-version = "1.0.6-1.20.1"
+version = "1.0.8-1.20.1"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "cc77b05e21288c5b7e6c4873f16da5b47d5d4b26ddf55ff30cd99bb91e18bb08"
+hash = "f7317e538b4688752f92bdba879f4edb8a28f19f1b0b64a0c6993dc011a88a97"
 
 [versions]
 fabric = "0.14.22"
