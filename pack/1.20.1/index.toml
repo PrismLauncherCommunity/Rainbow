@@ -5,6 +5,10 @@ file = "CHANGELOG.md"
 hash = "c5aecd1228b2d4977cf58dea1c2467bdf702cac5a69628458188810875a89725"
 
 [[files]]
+file = "config/isxander-main-menu-credits.json"
+hash = "dd6546556709dcba3606d6da622ffd1fe9c32a31692c89da7b48e14604963a37"
+
+[[files]]
 file = "config/yosbr/config/NoChatReports/NCR-Client.json"
 hash = "d16ef4b4dd9d1cfee220332e0246840ca3893a7c0cde99a299f717b63bd8dc2a"
 
@@ -50,11 +54,31 @@ hash = "c37edec3875da8e561eb60bb7a18dcdce128cc41cfe26261c65a8e942f65d58f"
 
 [[files]]
 file = "config/yosbr/options.txt"
-hash = "d59932dd2c071b31efe654f70de11decc23bd0f05af492dd6e42f89e4dd7369d"
+hash = "2f54cc5365380e2ea0ca0925faf7a68add138f7d432019e9208d8150128c79b9"
+
+[[files]]
+file = "mods/axolotl-buckets.pw.toml"
+hash = "f0d905f176d47c63139e372c9adc0e7538c60f8b4b2d4d359860eb0921b809a6"
+metafile = true
+
+[[files]]
+file = "mods/chunky.pw.toml"
+hash = "c176a0f84b0c3c03423e68b988cd43f51a6b1cf13a844574b19e003324533da0"
+metafile = true
+
+[[files]]
+file = "mods/chunkyborder.pw.toml"
+hash = "ae3387e1b13eae0eb58f66c74d1ec847362c657b66ae91f17bd1d5d299292885"
+metafile = true
 
 [[files]]
 file = "mods/cloth-config.pw.toml"
 hash = "b6348f94ec939f563285dc96683e61da8fc17ab2f2897be2751fa24789513691"
+metafile = true
+
+[[files]]
+file = "mods/continuity.pw.toml"
+hash = "2ff8353009122a86ac846dd8d48b2522d46f3b43111eb3a697d99cc42285a14f"
 metafile = true
 
 [[files]]
@@ -64,7 +88,7 @@ metafile = true
 
 [[files]]
 file = "mods/dynamic-fps.pw.toml"
-hash = "ad214677d7d7b71d0d962d4b3f668d34ba2faa19b30ad007afd89a205256505c"
+hash = "b2501ec08296916d344df698d0542054e49eae3283d97df3c375c9ef3df93808"
 metafile = true
 
 [[files]]
@@ -104,7 +128,7 @@ metafile = true
 
 [[files]]
 file = "mods/immediatelyfast.pw.toml"
-hash = "3cc35c86abdf13b0a159dca601ab82f3ca7b39de7c682b266598849987fe93af"
+hash = "ca885ba80a295fe9729c9ef27e366911d8ec2467bcced404f08593ead37176b0"
 metafile = true
 
 [[files]]
@@ -123,6 +147,16 @@ hash = "71ef7cc16632c0039fe194183b5885968c6d740aaa67a58000653ae0cb40b882"
 metafile = true
 
 [[files]]
+file = "mods/lambdynamiclights.pw.toml"
+hash = "a626674fc1092afe5ccc6cbf4856c09119e42395494f1c3862eed2ab17da0221"
+metafile = true
+
+[[files]]
+file = "mods/language-reload.pw.toml"
+hash = "cd9e975f57957445016f58556136ed293ad29919ac5735aaa587d5c5c251aac0"
+metafile = true
+
+[[files]]
 file = "mods/lithium.pw.toml"
 hash = "c239c951796882b9c93e649a0dba4f2d95804441faaed707b686381b7a5c67da"
 metafile = true
@@ -133,13 +167,28 @@ hash = "ebc7a77402069acd00a1a84eaeefc06c586035c31d7abbc941b9cf204afec2a9"
 metafile = true
 
 [[files]]
+file = "mods/main-menu-credits.pw.toml"
+hash = "2a79f7fb98b7073c926c6f87a93473f5714cf82a2ace7f344e4e2de4a33e0233"
+metafile = true
+
+[[files]]
+file = "mods/modelfix.pw.toml"
+hash = "6c417b19bc836d7c516be0097261c49cf1a167951bb4744ec0f3cc0bd0d1d24a"
+metafile = true
+
+[[files]]
 file = "mods/modernfix.pw.toml"
-hash = "e5f92dc07f3f57d187c366dc98c1d16d75df5cf47775b1c2d8589f5a01900536"
+hash = "e2979be57609f1f74666d2f69c003836b8551941e761a79707fbf3f9562dc603"
 metafile = true
 
 [[files]]
 file = "mods/modmenu.pw.toml"
 hash = "4cd171d3f5f3e1d2948cb1b0062e742a5e85110c9e9a668f9aed5b0cebcb9c97"
+metafile = true
+
+[[files]]
+file = "mods/morechathistory.pw.toml"
+hash = "d1558ff187abe468110fef11eee834aa3c03df732e706ac16e221425b538da4d"
 metafile = true
 
 [[files]]
@@ -254,12 +303,12 @@ metafile = true
 
 [[files]]
 file = "mods/switchy.pw.toml"
-hash = "0e53613ac0177c7840e8d6e064aa518bfe3dcb98178a45aeeab99c00672b4465"
+hash = "27f5efe6758f32ccdac8f19bab0708f91125c9ec3f55d2092ab79ee1f2d90513"
 metafile = true
 
 [[files]]
 file = "mods/threadtweak.pw.toml"
-hash = "bb044cd95d56fb9e1f52a8c18a843df8daf56d22a822568112e9dfa28dab7926"
+hash = "dbbeb7a8f32fdbe0d5e44a8c7671ed2297ee8d12d4610500ac54742e70b4fb53"
 metafile = true
 
 [[files]]
@@ -274,7 +323,7 @@ metafile = true
 
 [[files]]
 file = "mods/yacl.pw.toml"
-hash = "5128dafec4140a625b5c388f56e9989b8f6780dcce41134ef799bd9be3d5ae1a"
+hash = "9f8a007f79fc9d88ea537a9c3c2db347cc88a3adb84d39d17f12a5921e0291bf"
 metafile = true
 
 [[files]]
@@ -307,6 +356,10 @@ file = "resourcepacks/Rainbow Resources/assets/minecraft/textures/gui/title/back
 hash = "f7990bb935ccfc251e3ef4fe2caf2a9f6452a26c1e886448a8701369c50d07eb"
 
 [[files]]
+file = "resourcepacks/Rainbow Resources/assets/minecraft/textures/gui/title/edition.png"
+hash = "e7304c96e6a017d1a84015f40ab979533c487d87435367c81c66d671cbd3dd80"
+
+[[files]]
 file = "resourcepacks/Rainbow Resources/assets/minecraft/textures/gui/title/minceraft.png"
 hash = "69545d684dcc9fd4f5e5f3950a9e65e911af854533b8891aa6b31177208b4b96"
 
@@ -316,8 +369,31 @@ hash = "84ff260faa1cb3e3b92c40e111be17f605a633f5c7c7abdf363ff463af7aa65b"
 
 [[files]]
 file = "resourcepacks/Rainbow Resources/assets/rainbow/lang/en_us.json"
-hash = "2b7b6e1ec17ad913fc14014cf6dde57fb2b5a55d4555db0046ad3cb0ed07749e"
+hash = "647f06169ea6693417917a15c5672f7c728be3ec68913c794649fdbbddfd1083"
+
+[[files]]
+file = "resourcepacks/Rainbow Resources/assets/rainbow/lang/lol_us.json"
+hash = "f455f9dcfae6367d39ec77ecd2214268808b4f26d51460b7e36df62bc1ae4580"
 
 [[files]]
 file = "resourcepacks/Rainbow Resources/pack.mcmeta"
 hash = "8c275bd77dd3bb1aad1e95780ba25c986b3417e3729297bd3427069aaa3b1607"
+
+[[files]]
+file = "resourcepacks/Rainbow Resources/pack.png"
+hash = "e70b849ecdcdf3264a905acd7a8be502fa358ade044547dc8ffceb0842942e28"
+
+[[files]]
+file = "resourcepacks/fast-better-grass.pw.toml"
+hash = "312a98939d9d2a64f6e5e5119cdd2de7b16088a9f98dc8c70bbc10f6077c8263"
+metafile = true
+
+[[files]]
+file = "resourcepacks/translations-for-sodium.pw.toml"
+hash = "312dfbf1be1f1f2a93f9cab87aa4326da2ce2827e11545030060bb7d85c07edc"
+metafile = true
+
+[[files]]
+file = "shaderpacks/makeup-ultra-fast-shaders.pw.toml"
+hash = "5abda04cae7fbd80a64ec353c638af67a0994ebadcd0d9c24c7e482814a866cb"
+metafile = true
